@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
 import { Heart, Users, Building2, GraduationCap, Search, Globe, UserCheck, Phone } from "lucide-react"
 
 const services = [
@@ -68,10 +71,32 @@ const services = [
 ]
 
 export function ServicesOverview() {
+  const [visibleItems, setVisibleItems] = useState<number[]>([])
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
+            setVisibleItems((prev) => [...prev, index])
+          }
+        })
+      },
+      { threshold: 0.1 },
+    )
+
+    const items = sectionRef.current?.querySelectorAll("[data-index]")
+    items?.forEach((item) => observer.observe(item))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-20 lg:py-32 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-6 mb-16">
+        <div className="text-center space-y-6 mb-16 animate-in fade-in slide-in-from-bottom duration-1000">
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 text-balance">
             Building comprehensive health systems for the Asia-Pacific region
           </h2>
@@ -84,13 +109,29 @@ export function ServicesOverview() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
+            const isVisible = visibleItems.includes(index)
             return (
-              <div key={index} className="text-center space-y-4">
-                <div className={`w-20 h-20 rounded-full ${service.bgColor} flex items-center justify-center mx-auto`}>
-                  <Icon className={`h-10 w-10 ${service.color}`} />
+              <div
+                key={index}
+                data-index={index}
+                className={`text-center space-y-4 group cursor-pointer transition-all duration-500 transform hover:scale-105 ${
+                  isVisible ? "animate-in fade-in slide-in-from-bottom" : "opacity-0 translate-y-8"
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div
+                  className={`w-20 h-20 rounded-full ${service.bgColor} flex items-center justify-center mx-auto transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}
+                >
+                  <Icon
+                    className={`h-10 w-10 ${service.color} transition-transform duration-300 group-hover:scale-110`}
+                  />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 text-pretty leading-relaxed">{service.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-primary">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-pretty leading-relaxed transition-colors duration-300 group-hover:text-gray-800">
+                  {service.description}
+                </p>
               </div>
             )
           })}
