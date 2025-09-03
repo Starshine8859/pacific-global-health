@@ -126,6 +126,68 @@
 }
 
 @layer utilities {
+  /* Adding 3D perspective and transform utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .rotate-x-2 {
+    transform: rotateX(2deg);
+  }
+
+  .rotate-y-2 {
+    transform: rotateY(2deg);
+  }
+
+  .rotate-y-6 {
+    transform: rotateY(6deg);
+  }
+
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+
+  .rotate-x-3 {
+    transform: rotateX(3deg);
+  }
+
+  .rotate-z-12 {
+    transform: rotateZ(12deg);
+  }
+
+  .translate-z-1 {
+    transform: translateZ(10px);
+  }
+
+  .translate-z-2 {
+    transform: translateZ(20px);
+  }
+
+  .translate-z-4 {
+    transform: translateZ(40px);
+  }
+
+  .translate-z-6 {
+    transform: translateZ(60px);
+  }
+
+  .translate-z-8 {
+    transform: translateZ(80px);
+  }
+
   .animate-typewriter {
     overflow: hidden;
     border-right: 2px solid;
@@ -156,6 +218,19 @@
     animation: float 3s ease-in-out infinite;
   }
 
+  /* Adding floating animations for 3D particles */
+  .animate-float-1 {
+    animation: float1 4s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: float2 5s ease-in-out infinite 1s;
+  }
+
+  .animate-float-3 {
+    animation: float3 6s ease-in-out infinite 2s;
+  }
+
   @keyframes float {
     0%,
     100% {
@@ -163,6 +238,43 @@
     }
     50% {
       transform: translateY(-10px);
+    }
+  }
+
+  /* Adding 3D floating keyframes */
+  @keyframes float1 {
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px) translateZ(0px);
+    }
+    33% {
+      transform: translateY(-15px) translateX(10px) translateZ(5px);
+    }
+    66% {
+      transform: translateY(5px) translateX(-5px) translateZ(-3px);
+    }
+  }
+
+  @keyframes float2 {
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px) translateZ(0px);
+    }
+    50% {
+      transform: translateY(-20px) translateX(-8px) translateZ(8px);
+    }
+  }
+
+  @keyframes float3 {
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px) translateZ(0px);
+    }
+    25% {
+      transform: translateY(-10px) translateX(5px) translateZ(3px);
+    }
+    75% {
+      transform: translateY(8px) translateX(-10px) translateZ(-5px);
     }
   }
 
