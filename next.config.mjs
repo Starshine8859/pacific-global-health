@@ -9,6 +9,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  reactStrictMode: false,
+  devIndicators: {
+    buildActivity: false,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  experimental: {
+    suppressHydrationWarning: true,
+  },
 }
 
 export default nextConfig

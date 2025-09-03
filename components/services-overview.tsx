@@ -2,71 +2,80 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Heart, Users, Building2, GraduationCap, Search, Globe, UserCheck, Phone } from "lucide-react"
+import Link from "next/link"
 
 const services = [
   {
     icon: Building2,
     title: "Primary Care",
     description:
-      "Strengthening the foundation of health systems by supporting accessible, patient-centred, and community-driven healthcare.",
+      "We believe that strong and accessible primary healthcare is the cornerstone of resilient health systems. Our commitment is to ensure that every individual, regardless of background or location, can access timely, affordable, and high-quality care at the community level.",
     color: "text-cyan-600",
     bgColor: "bg-cyan-50",
+    href: "/primary-care",
   },
   {
     icon: Globe,
     title: "Global Health Partnerships",
     description:
-      "Building collaborative networks with governments, NGOs, and institutions to strengthen healthcare systems worldwide.",
+      "Pacific Global Health is committed to advancing health equity and improving access to quality healthcare worldwide. Our partnerships reflect our belief that collaboration is the most powerful tool for addressing global health challenges.",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
+    href: "/partnerships",
   },
   {
     icon: Users,
     title: "Systems Development",
     description:
-      "Creating resilient health systems through innovation, collaboration, and evidence-based practice for sustainable healthcare.",
+      "We believe that resilient health systems are the backbone of healthier, more equitable societies. Our mission is to help countries and communities strengthen the foundations of healthcare delivery by combining innovation, collaboration, and evidence-based practice.",
     color: "text-teal-600",
     bgColor: "bg-teal-50",
+    href: "/systems-development",
   },
   {
     icon: GraduationCap,
     title: "Training & Workforce Development",
     description:
-      "Developing global platforms for internships, scholarships, and professional development opportunities for healthcare workers.",
+      "We believe that knowledge sharing and cross-border collaboration are key to building stronger, more resilient health systems. We are developing a dedicated platform that connects healthcare workers and students worldwide through internships, scholarships, and elective opportunities.",
     color: "text-green-600",
     bgColor: "bg-green-50",
+    href: "/training",
   },
   {
     icon: Search,
     title: "Research",
     description:
-      "Facilitating global research networking across clinical, public health, health systems, and translational research domains.",
+      "We recognise that research is the cornerstone of innovation and improvement in healthcare. To address today's most pressing health challenges, collaboration across borders is essential. Our mission is to facilitate global research networking.",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
+    href: "/research",
   },
   {
     icon: UserCheck,
     title: "Leadership",
     description:
-      "Academic and strategic leadership driving innovation in health systems through evidence-based practice and policy.",
+      "Dr. Sathira Perera is the Founder, Director and the academic lead of the Pacific Global Health. Being a primary care physician and a health systems specialist whose work spans medicine, research, and policy.",
     color: "text-orange-600",
     bgColor: "bg-orange-50",
+    href: "/leadership",
   },
   {
     icon: Heart,
     title: "Consultancy Services",
     description:
-      "Offering tailored advice and solutions for governments, NGOs, and private sector partners to scale effective health interventions.",
+      "Offering tailored advice and solutions for governments, NGOs, and private sector partners to design, evaluate, and scale effective health interventions through our comprehensive consultancy services.",
     color: "text-red-600",
     bgColor: "bg-red-50",
+    href: "/contact",
   },
   {
     icon: Phone,
     title: "Contact & Engagement",
     description:
-      "Connecting with stakeholders worldwide to build partnerships and collaborate on transformative healthcare initiatives.",
+      "Connect with Pacific Global Health to explore partnership opportunities, access our services, or learn more about our mission to strengthen health systems across the Asia-Pacific region and beyond.",
     color: "text-indigo-600",
     bgColor: "bg-indigo-50",
+    href: "/contact",
   },
 ]
 
@@ -93,8 +102,14 @@ export function ServicesOverview() {
     return () => observer.disconnect()
   }, [])
 
+  const handleServiceClick = (href: string) => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }, 100)
+  }
+
   return (
-    <section className="py-20 lg:py-32 bg-white perspective-1000" ref={sectionRef}>
+    <section id="services" className="py-20 lg:py-32 bg-white perspective-1000" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6 mb-16 animate-in fade-in slide-in-from-bottom duration-1000">
           <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 text-balance">
@@ -111,10 +126,12 @@ export function ServicesOverview() {
             const Icon = service.icon
             const isVisible = visibleItems.includes(index)
             return (
-              <div
+              <Link
                 key={index}
+                href={service.href}
                 data-index={index}
-                className={`text-center space-y-4 group cursor-pointer transition-all duration-700 transform-gpu preserve-3d hover:rotate-y-6 hover:scale-105 hover:translate-z-4 h-full ${
+                onClick={() => handleServiceClick(service.href)}
+                className={`text-center space-y-4 group cursor-pointer transition-all duration-700 transform-gpu preserve-3d hover:rotate-y-6 hover:scale-105 hover:translate-z-4 h-full block ${
                   isVisible ? "animate-in fade-in slide-in-from-bottom" : "opacity-0 translate-y-8"
                 }`}
                 style={{
@@ -142,7 +159,7 @@ export function ServicesOverview() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

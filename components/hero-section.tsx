@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export function HeroSection() {
   const [displayedText, setDisplayedText] = useState("")
@@ -17,7 +18,7 @@ export function HeroSection() {
       } else {
         clearInterval(interval)
       }
-    }, 100)
+    }, 200) // Slowed down typewriter animation from 100ms to 200ms
 
     return () => clearInterval(interval)
   }, [])
@@ -42,17 +43,20 @@ export function HeroSection() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-in fade-in slide-in-from-bottom duration-1000 delay-1500 transform-gpu preserve-3d">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg group transition-all duration-500 transform-gpu preserve-3d hover:scale-105 hover:translate-z-6 hover:rotate-x-2 hover:shadow-2xl"
-                >
-                  Explore Our Services
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:translate-z-2 transition-all duration-300 transform-gpu" />
-                </Button>
+                <Link href="#services">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg group transition-all duration-500 transform-gpu preserve-3d hover:scale-105 hover:translate-z-6 hover:rotate-x-2 hover:shadow-2xl"
+                  >
+                    Explore Our Services
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:translate-z-2 transition-all duration-300 transform-gpu" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
 
+          {/* Video Section */}
           <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-1/2 transform-gpu preserve-3d">
             <div className="relative aspect-square bg-black/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 animate-in fade-in slide-in-from-right duration-1000 delay-500 max-w-md mx-auto transform-gpu preserve-3d hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:translate-z-8 transition-all duration-700 hover:shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-2xl transform translate-z-[-20px] opacity-50 blur-sm"></div>

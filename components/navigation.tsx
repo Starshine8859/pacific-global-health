@@ -34,11 +34,11 @@ export function Navigation() {
             <Image
               src="/images/pacific-global-health-logo.png"
               alt="Pacific Global Health"
-              width={45}
-              height={45}
+              width={60}
+              height={60}
               className="rounded-full transition-transform duration-300 group-hover:scale-110"
             />
-            <span className="font-bold text-xl text-gray-900 transition-colors duration-300 group-hover:text-primary">
+            <span className="font-bold text-2xl text-gray-900 transition-colors duration-300 group-hover:text-primary">
               Pacific Global Health
             </span>
           </Link>
