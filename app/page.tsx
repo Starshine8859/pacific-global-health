@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
+import { ImageSlideshow } from "@/components/image-slideshow"
 import { ServicesOverview } from "@/components/services-overview"
 import { LeadershipSection } from "@/components/leadership-section"
 import { StoriesSection } from "@/components/stories-section"
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Navigation />
       <main>
         <HeroSection />
+        <ImageSlideshow />
         <ServicesOverview />
         <LeadershipSection />
         <StoriesSection />

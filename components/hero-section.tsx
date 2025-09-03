@@ -60,11 +60,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Video Section */}
-          <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-auto max-w-md lg:max-w-lg">
-            <div className="relative aspect-square bg-black/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 animate-in fade-in slide-in-from-right duration-1000 delay-500">
+          <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-1/2">
+            <div className="relative aspect-square bg-black/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 animate-in fade-in slide-in-from-right duration-1000 delay-500 max-w-md mx-auto">
               <video autoPlay loop muted playsInline className="w-full h-full object-contain">
-                <source src="/videos/rotating-globe.mp4" type="video/mp4" />
+                <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hailuo_Video_make%20the%20globe%20roate%20around%20it_416252760809857026-g6w9tLDzBNthLYf6YfOwDexpJKyg0H.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5" />
             </div>
