@@ -5,12 +5,11 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-contain bg-black">
-          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hailuo_Video_make%20the%20globe%20roate%20around%20it_416252760809857026-Cw3JV4hUbEebu6vdEwuqSrQi4FSMld.mp4" type="video/mp4" />
+      <div className="absolute inset-0 z-0 flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <video autoPlay loop muted playsInline className="w-auto h-auto max-w-full max-h-full object-contain">
+          <source src="/videos/rotating-globe.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
       </div>
 
       {/* Content */}

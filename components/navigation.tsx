@@ -10,15 +10,17 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { href: "/", label: "OUR STORIES" },
-    { href: "/work", label: "OUR WORK" },
+    { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT US" },
-    { href: "/involved", label: "GET INVOLVED" },
-    { href: "/contact", label: "CONTACT US" },
+    { href: "/primary-care", label: "PRIMARY CARE" },
+    { href: "/partnerships", label: "PARTNERSHIPS" },
+    { href: "/training", label: "TRAINING" },
+    { href: "/research", label: "RESEARCH" },
+    { href: "/leadership", label: "LEADERSHIP" },
   ]
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-3">
@@ -33,7 +35,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -46,7 +48,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -55,8 +57,8 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+          <div className="lg:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-gray-200">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
