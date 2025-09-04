@@ -24,7 +24,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: "1800 123 456 (Virtual Receptionist)",
+      details: "1800 123 456 ",
       description: "Mon – Fri 09:00 to 17:00 (AEST)",
     },
     {
