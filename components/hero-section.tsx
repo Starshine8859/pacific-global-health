@@ -24,7 +24,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 perspective-1000">
+    <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 perspective-1000">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Content Section */}
