@@ -27,6 +27,7 @@ export default function PrimaryCarePage() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
+        {/* Hero Section */}
         <section className="bg-gradient-to-r from-primary/10 to-primary/5 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
@@ -44,6 +45,45 @@ export default function PrimaryCarePage() {
           </div>
         </section>
 
+        {/* Promotional Content Section */}
+        <section className="relative py-12 bg-white dark:bg-background border-y border-primary/10">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="flex-1">
+                <h2 className="text-3xl font-bold text-primary mb-4">
+                  At Pacific Global Health, we believe in strong, accessible primary healthcare.
+                </h2>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Our commitment is to ensure that every individual, regardless of background or location, can access timely, affordable, and high-quality care at the community level.
+                </p>
+                <p className="text-lg text-muted-foreground mb-4">
+                  We design and implement innovative primary care service models that address evolving population needs while remaining patient-centred, equitable, and sustainable. Our focus is on prevention, early diagnosis, and continuity of care—reducing disease burden and improving long-term outcomes.
+                </p>
+                <p className="text-lg text-muted-foreground mb-4">
+                  By combining global best practices with local solutions, we ensure services are culturally appropriate and tailored to each community. Through partnerships with governments, healthcare providers, and community organisations, we integrate modern technologies, evidence-based practices, and multidisciplinary teamwork.
+                </p>
+                <p className="text-lg text-muted-foreground mb-4">
+                  We also invest in capacity building, supporting healthcare workers through training and professional development to strengthen frontline care.
+                </p>
+                <p className="text-lg text-muted-foreground">
+                  Through innovation, collaboration, and a deep commitment to community health, Pacific Global Health is building primary healthcare systems that are effective today and sustainable for future generations.
+                </p>
+              </div>
+              <div className="flex-1 hidden md:block">
+                <div className="relative h-80 w-full rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/healthcare-worker-with-patient-in-asia-pacific-reg.png"
+                    alt="Primary care delivery"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Approach Section */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">

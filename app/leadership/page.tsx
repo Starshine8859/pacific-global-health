@@ -40,35 +40,34 @@ export default function LeadershipPage() {
                 <div className="p-8 flex flex-col justify-center">
                   <CardHeader className="p-0 mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="outline">MBBS, FRACGP, MPH</Badge>
+                      <Badge variant="outline">MBBS, FRACGP, MPH, PhD</Badge>
                     </div>
                     <CardTitle className="text-3xl">Dr. Sathira Perera</CardTitle>
                     <CardDescription className="text-lg text-primary font-medium">
-                      Founder & Chief Executive
+                      Founder, Director & Academic Lead
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="p-0 space-y-6">
                     <p className="text-muted-foreground text-pretty leading-relaxed">
-                      Dr. Sathira Perera is a distinguished healthcare leader with extensive experience spanning primary
-                      care, public health, and health systems development. As the founder of Pacific Global Health, he
-                      brings a unique combination of clinical expertise, academic rigor, and strategic vision to address
-                      complex healthcare challenges across the Asia-Pacific region.
+                      Dr. Sathira Perera is the Founder, Director and the academic lead of Pacific Global Health.
+                      Being a primary care physician and a health systems specialist whose work spans medicine, research, and policy, Dr. Perera has dedicated his career to advancing health systems through evidence-based practice, innovative research, and strategic leadership.
                     </p>
-
                     <p className="text-muted-foreground text-pretty leading-relaxed">
-                      With qualifications in medicine (MBBS), Fellowship of the Royal Australian College of General
-                      Practitioners (FRACGP), and a Master of Public Health (MPH), Dr. Perera has dedicated his career
-                      to improving healthcare access, quality, and sustainability across diverse communities and health
-                      systems.
+                      He holds qualifications in medicine, public health, health economics and health services research, including a Scientia PhD from the University of New South Wales. His research in Health Economics and Policy has positioned him to critically analyse healthcare financing, resource allocation, and policy reforms that impact health equity and access.
                     </p>
-
+                    <p className="text-muted-foreground text-pretty leading-relaxed">
+                      Dr. Perera’s academic work reflects a strong commitment to bridging the gap between research and practice, ensuring that findings translate into meaningful improvements for communities and healthcare providers alike.
+                    </p>
+                    <p className="text-muted-foreground text-pretty leading-relaxed">
+                      As an academic leader, Dr. Perera brings a unique blend of clinical insight, public health perspective, and policy acumen. His vision is to inspire collaboration, nurture future health professionals, and lead innovative initiatives that strengthen healthcare delivery both regionally and globally.
+                    </p>
                     <div className="grid gap-4">
                       <div className="flex items-start gap-3">
                         <GraduationCap className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="font-medium text-sm">Academic Qualifications</p>
                           <p className="text-sm text-muted-foreground">
-                            MBBS, FRACGP, MPH - Comprehensive medical and public health training
+                            MBBS, FRACGP, MPH, PhD (Scientia, UNSW) – Medicine, public health, health economics, and health services research
                           </p>
                         </div>
                       </div>
@@ -86,7 +85,7 @@ export default function LeadershipPage() {
                         <div>
                           <p className="font-medium text-sm">Global Health Focus</p>
                           <p className="text-sm text-muted-foreground">
-                            Specialized expertise in Asia-Pacific health systems development
+                            Specialised expertise in Asia-Pacific health systems development, health policy and research translation
                           </p>
                         </div>
                       </div>
@@ -95,7 +94,7 @@ export default function LeadershipPage() {
                         <div>
                           <p className="font-medium text-sm">Mission-Driven Leadership</p>
                           <p className="text-sm text-muted-foreground">
-                            Committed to sustainable healthcare transformation and capacity building
+                            Committed to sustainable healthcare transformation, capacity building, and nurturing future leaders
                           </p>
                         </div>
                       </div>
@@ -115,9 +114,7 @@ export default function LeadershipPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-pretty leading-relaxed">
-                    Dr. Perera's leadership philosophy centers on collaborative, evidence-based approaches to health
-                    systems strengthening. He believes in empowering local healthcare professionals and institutions
-                    while fostering international partnerships that drive sustainable improvements in health outcomes.
+                    Dr. Perera’s leadership philosophy centres on collaborative, evidence-based approaches to health systems strengthening. He believes in empowering local healthcare professionals and institutions while fostering international partnerships that drive sustainable improvements in health outcomes.
                   </p>
                 </CardContent>
               </Card>
@@ -131,9 +128,7 @@ export default function LeadershipPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-pretty leading-relaxed">
-                    Under Dr. Perera's leadership, Pacific Global Health has established itself as a trusted partner in
-                    health systems development, training, and research across the Asia-Pacific region, with a focus on
-                    building local capacity and sustainable healthcare solutions.
+                    Under Dr. Perera’s leadership, Pacific Global Health has established itself as a trusted partner in health systems development, training, and research across the Asia-Pacific region, with a focus on building local capacity and sustainable healthcare solutions.
                   </p>
                 </CardContent>
               </Card>

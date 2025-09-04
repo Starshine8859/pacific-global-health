@@ -22,11 +22,17 @@ export default function TrainingPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
                 Building Global Healthcare Capacity
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-                We believe that knowledge sharing and cross-border collaboration are key to building stronger, more
-                resilient health systems. We are developing a dedicated platform that connects healthcare workers and
-                students worldwide through internships, scholarships, and elective opportunities.
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-6">
+                At Pacific Global Health, we believe that knowledge sharing and cross-border collaboration are key to building stronger, more resilient health systems. Our dedicated platform connects healthcare workers and students worldwide through internships, scholarships, and elective opportunities.
               </p>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
+                This initiative fosters global learning, cultural exchange, and professional growth. By providing access to structured placements across diverse healthcare settings, we empower participants to experience firsthand the challenges and innovations shaping health systems around the world. These opportunities build clinical and research skills, promote empathy, adaptability, and leadership—qualities essential for the next generation of health professionals.
+              </p>
+              <div className="mt-8">
+                <Button asChild size="lg" className="px-8">
+                  <a href="#express-interest">Register Your Expression of Interest</a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -111,13 +117,12 @@ export default function TrainingPage() {
           </div>
         </section>
 
-        <section className="py-16 bg-gray-50">
+        <section id="express-interest" className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4">Express Your Interest</h2>
               <p className="text-lg text-muted-foreground">
-                Join our global network of healthcare professionals. Apply for electives, training programs, or
-                internship opportunities.
+                We invite healthcare workers, students, and institutions to join us in shaping this exciting initiative. If you are passionate about learning, teaching, or contributing to global health, please register your Expression of Interest below.
               </p>
             </div>
 

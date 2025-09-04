@@ -9,7 +9,7 @@ const services = [
     icon: Building2,
     title: "Primary Care",
     description:
-      "We believe that strong and accessible primary healthcare is the cornerstone of resilient health systems. Our commitment is to ensure that every individual, regardless of background or location, can access timely, affordable, and high-quality care at the community level.",
+      "Strengthening the foundation of health systems by supporting accessible, patient-centred, and community-driven healthcare. We design and implement innovative primary care models focused on prevention, early diagnosis, and continuity of care—improving outcomes and building sustainable, equitable systems for the future.",
     color: "text-cyan-600",
     bgColor: "bg-cyan-50",
     href: "/primary-care",
@@ -18,7 +18,7 @@ const services = [
     icon: Globe,
     title: "Global Health Partnerships",
     description:
-      "Pacific Global Health is committed to advancing health equity and improving access to quality healthcare worldwide. Our partnerships reflect our belief that collaboration is the most powerful tool for addressing global health challenges.",
+      "Advancing health equity and improving access to quality healthcare worldwide through trusted partnerships. We collaborate with governments, NGOs, research institutions, and local providers to build capacity, strengthen systems, and deliver sustainable solutions for healthier communities.",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     href: "/partnerships",
@@ -27,7 +27,7 @@ const services = [
     icon: Users,
     title: "Systems Development",
     description:
-      "We believe that resilient health systems are the backbone of healthier, more equitable societies. Our mission is to help countries and communities strengthen the foundations of healthcare delivery by combining innovation, collaboration, and evidence-based practice.",
+      "Helping countries and communities strengthen the foundations of healthcare delivery by combining innovation, collaboration, and evidence-based practice. We support primary care, drive research, provide consultancy, and mobilise resources to build resilient, adaptive health systems.",
     color: "text-teal-600",
     bgColor: "bg-teal-50",
     href: "/systems-development",
@@ -36,7 +36,7 @@ const services = [
     icon: GraduationCap,
     title: "Training & Workforce Development",
     description:
-      "We believe that knowledge sharing and cross-border collaboration are key to building stronger, more resilient health systems. We are developing a dedicated platform that connects healthcare workers and students worldwide through internships, scholarships, and elective opportunities.",
+      "Fostering global learning, cultural exchange, and professional growth through a dedicated platform for internships, scholarships, and electives. We connect healthcare workers and students worldwide, building clinical and research skills, empathy, adaptability, and leadership for the next generation.",
     color: "text-green-600",
     bgColor: "bg-green-50",
     href: "/training",
@@ -45,7 +45,7 @@ const services = [
     icon: Search,
     title: "Research",
     description:
-      "We recognise that research is the cornerstone of innovation and improvement in healthcare. To address today's most pressing health challenges, collaboration across borders is essential. Our mission is to facilitate global research networking.",
+      "Facilitating global research networking and collaboration across clinical, public health, systems, and translational research. We provide resources, consultancy, and knowledge exchange to drive impactful projects that advance science and transform health systems.",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     href: "/research",
@@ -54,7 +54,7 @@ const services = [
     icon: UserCheck,
     title: "Leadership",
     description:
-      "Dr. Sathira Perera is the Founder, Director and the academic lead of the Pacific Global Health. Being a primary care physician and a health systems specialist whose work spans medicine, research, and policy.",
+      "Dr. Sathira Perera, Founder, Director, and Academic Lead, brings a unique blend of clinical, research, and policy expertise. His vision inspires collaboration, nurtures future health professionals, and leads innovative initiatives to strengthen healthcare delivery regionally and globally.",
     color: "text-orange-600",
     bgColor: "bg-orange-50",
     href: "/leadership",
@@ -63,7 +63,7 @@ const services = [
     icon: Heart,
     title: "Consultancy Services",
     description:
-      "Offering tailored advice and solutions for governments, NGOs, and private sector partners to design, evaluate, and scale effective health interventions through our comprehensive consultancy services.",
+      "Offering tailored advice and solutions for governments, NGOs, and private sector partners to design, evaluate, and scale effective health interventions. Our consultancy blends global expertise with local insights for sustainable impact.",
     color: "text-red-600",
     bgColor: "bg-red-50",
     href: "/contact",
@@ -113,11 +113,10 @@ export function ServicesOverview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6 mb-16 animate-in fade-in slide-in-from-bottom duration-1000">
           <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 text-balance">
-            Building comprehensive health systems for the Asia-Pacific region
+            Building comprehensive health system improvement for the Asia-Pacific region
           </h2>
           <p className="text-lg text-gray-600 text-pretty max-w-4xl mx-auto leading-relaxed">
-            We work across eight core functions to strengthen healthcare delivery, build capacity, and create
-            sustainable solutions for healthier communities.
+            We work across eight core functions to strengthen healthcare delivery, build capacity, and create sustainable solutions for healthier communities.
           </p>
         </div>
 
