@@ -12,7 +12,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      details: "info@pacificglobalhealth.org",
+      details: "info@pacificglobal.org",
       description: "Send us a message anytime",
     },
     {
@@ -24,8 +24,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: "Available upon request",
-      description: "Contact us via email first",
+      details: "1800 123 456 (Virtual Receptionist)",
+      description: "Mon – Fri 09:00 to 17:00 (AEST)",
     },
     {
       icon: Clock,
@@ -85,16 +85,12 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <p className="font-medium text-foreground">General Inquiries</p>
-                      <p className="text-muted-foreground">info@pacificglobalhealth.org</p>
+                      <p className="text-muted-foreground">director@pacificglobal.org</p>
+                      <p className="text-muted-foreground">info@pacificglobal.org</p>
+                      <p className="text-muted-foreground">training@pacificglobal.org</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-medium text-foreground">Partnerships</p>
-                      <p className="text-muted-foreground">partnerships@pacificglobalhealth.org</p>
-                    </div>
-                  </div>
+
                 </div>
               </div>
 

@@ -16,10 +16,8 @@ export default function LeadershipPage() {
               <Badge variant="secondary" className="mb-4">
                 Leadership
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">Our Leadership Team</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">My Leadership </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-                Meet the experienced professionals leading Pacific Global Health's mission to transform healthcare
-                systems across the Asia-Pacific region.
               </p>
             </div>
           </div>

@@ -6,6 +6,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { useEffect } from "react"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,12 +14,13 @@ export function Navigation() {
 
   const navItems = [
     { href: "/", label: "HOME" },
-    { href: "/about", label: "ABOUT US" },
     { href: "/primary-care", label: "PRIMARY CARE" },
     { href: "/partnerships", label: "PARTNERSHIPS" },
     // { href: "/systems-development", label: "SYSTEM DEVELOPMENT" },
     { href: "/training", label: "TRAINING" },
     { href: "/research", label: "RESEARCH" },
+    { href: "/contact", label: "CONTACT" },
+    { href: "/about", label: "ABOUT US" },
     { href: "/leadership", label: "LEADERSHIP" },
   ]
 
@@ -27,8 +29,25 @@ export function Navigation() {
     return pathname.startsWith(href)
   }
 
+  // Lock body scroll when mobile menu is open and close on route change
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    // Close menu when the route changes
+    setIsOpen(false)
+  }, [pathname])
+
   return (
-    <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm animate-in slide-in-from-top duration-500">
+    <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm animate-in slide-in-from-top duration-500" role="navigation" aria-label="Main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-3 group">
@@ -72,6 +91,9 @@ export function Navigation() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="transition-transform duration-200 hover:scale-110"
+              aria-controls="mobile-menu"
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -80,8 +102,8 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden animate-in slide-in-from-top duration-300">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-gray-200">
+          <div id="mobile-menu" className="lg:hidden animate-in slide-in-from-top duration-300" role="dialog" aria-modal="true">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-gray-200 max-h-[calc(100dvh-64px)] overflow-auto">
               {navItems.map((item, index) => (
                 <Link
                   key={item.href}
