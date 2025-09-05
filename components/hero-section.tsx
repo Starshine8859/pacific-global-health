@@ -72,9 +72,7 @@ export function HeroSection() {
 
           {/* Video Section */}
           <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-1/2 transform-gpu preserve-3d">
-            <div className={`relative aspect-video sm:aspect-[4/3] bg-black/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 ${prefersReducedMotion ? "" : "animate-in fade-in slide-in-from-right duration-1000 delay-500"} max-w-2xl lg:max-w-md mx-auto transform-gpu preserve-3d ${prefersReducedMotion ? "" : "hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:translate-z-8"} transition-all duration-700 hover:shadow-2xl`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-2xl transform translate-z-[-20px] opacity-50 blur-sm"></div>
-
+            <div className={`relative aspect-video sm:aspect-[4/3] rounded-2xl overflow-hidden ${prefersReducedMotion ? "" : "animate-in fade-in slide-in-from-right duration-1000 delay-500"} max-w-2xl lg:max-w-md mx-auto transform-gpu preserve-3d ${prefersReducedMotion ? "" : "hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:translate-z-8"} transition-all duration-700 hover:shadow-2xl`}>
               {prefersReducedMotion ? (
                 <div className="w-full h-full bg-black/10 flex items-center justify-center text-white/70 text-sm">Video preview disabled</div>
               ) : (
@@ -88,8 +86,6 @@ export function HeroSection() {
                   <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hailuo_Video_make%20the%20globe%20roate%20around%20it_416252760809857026-g6w9tLDzBNthLYf6YfOwDexpJKyg0H.mp4" type="video/mp4" />
                 </video>
               )}
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5 transform-gpu preserve-3d hover:translate-z-2 transition-all duration-300" />
 
               {!prefersReducedMotion && (
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
