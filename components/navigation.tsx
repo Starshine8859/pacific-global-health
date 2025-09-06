@@ -5,23 +5,25 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, LogIn } from "lucide-react"
 import { useEffect } from "react"
+import { LoginModal } from "@/components/login-modal"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const pathname = usePathname()
 
   const navItems = [
-    { href: "/", label: "HOME" },
+    // { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT US" },
     { href: "/primary-care", label: "PRIMARY CARE" },
     { href: "/partnerships", label: "PARTNERSHIPS" },
     // { href: "/systems-development", label: "SYSTEM DEVELOPMENT" },
     { href: "/training", label: "TRAINING" },
     { href: "/research", label: "RESEARCH" },
-    { href: "/contact", label: "CONTACT" },
-    { href: "/about", label: "ABOUT US" },
     { href: "/leadership", label: "LEADERSHIP" },
+    { href: "/contact", label: "CONTACT US" }
   ]
 
   const isActive = (href: string) => {
@@ -63,26 +65,35 @@ export function Navigation() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {navItems.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`relative text-sm font-medium transition-all duration-300 uppercase tracking-wide transform hover:scale-105 animate-in fade-in slide-in-from-top ${
-                  isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
-                }`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {item.label}
-                <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                    isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </Link>
-            ))}
-          </div>
+           {/* Desktop Navigation */}
+           <div className="hidden lg:flex items-center space-x-6">
+             {navItems.map((item, index) => (
+               <Link
+                 key={item.href}
+                 href={item.href}
+                 className={`relative text-sm font-medium transition-all duration-300 uppercase tracking-wide transform hover:scale-105 animate-in fade-in slide-in-from-top ${
+                   isActive(item.href) ? "text-primary" : "text-gray-700 hover:text-primary"
+                 }`}
+                 style={{ animationDelay: `${index * 100}ms` }}
+               >
+                 {item.label}
+                 <span
+                   className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                     isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
+                   }`}
+                 />
+               </Link>
+             ))}
+             <Button
+               variant="outline"
+               size="sm"
+               onClick={() => setIsLoginModalOpen(true)}
+               className="ml-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+             >
+               <LogIn className="h-4 w-4 mr-2" />
+               Login
+             </Button>
+           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
@@ -119,10 +130,30 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
+              <div className="px-3 py-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setIsLoginModalOpen(true)
+                    setIsOpen(false)
+                  }}
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              </div>
             </div>
           </div>
         )}
       </div>
+      
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
     </nav>
   )
 }

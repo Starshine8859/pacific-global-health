@@ -2,27 +2,27 @@ export function StoriesSection() {
   const stories = [
     {
       image: "/healthcare-training-in-pacific-islands.png",
-      date: "Tmplate1-1-date",
-      title: "Tmplate1-1-title",
-      category: "Tmplate1-1-category",
-    },
-    {
-      image: "/children-receiving-healthcare-in-asia-pacific.png",
-      date: "Tmplate2-1-date",
-      title: "Tmplate2-1-title",
-      category: "Tmplate2-1-category",
+      date: "",
+      title: "Primary Care Services enhancement across Asia Pacific region",
+      category: "",
     },
     {
       image: "/healthcare-partnership-meeting.png",
-      date: "Tmplate3-1-date",
-      title: "Tmplate3-1-title",
-      category: "Tmplate3-1-category",
+      date: "",
+      title: "Health systems research, development and training.",
+      category: "",
+    },
+    {
+      image: "/healthcare-partnership-meeting.png",
+      date: "",
+      title: "Health Workforce Management Intervention",
+      category: "",
     },
     {
       image: "/health-systems-research.png",
-      date: "Tmplate4-1-date",
-      title: "Tmplate4-1-title",
-      category: "Tmplate4-1-category",
+      date: "",
+      title: "Facilitating Global Health Research and Innovation.",
+      category: "",
     },
   ]
 
@@ -30,9 +30,9 @@ export function StoriesSection() {
     <section className="py-14 sm:py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6 mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900 text-balance">Template</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900 text-balance">Our Stories</h2>
           <p className="text-base md:text-xl text-gray-600 text-pretty max-w-4xl mx-auto leading-relaxed">
-            Template
+            
           </p>
         </div>
 
