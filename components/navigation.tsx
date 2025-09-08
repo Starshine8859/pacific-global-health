@@ -12,6 +12,7 @@ import { LoginModal } from "@/components/login-modal"
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const pathname = usePathname()
 
   const navItems = [
@@ -47,6 +48,33 @@ export function Navigation() {
     // Close menu when the route changes
     setIsOpen(false)
   }, [pathname])
+
+  useEffect(() => {
+    const readAuth = () => {
+      try {
+        const raw = localStorage.getItem("pg_auth")
+        setIsAuthenticated(!!(raw && JSON.parse(raw)?.user))
+      } catch {
+        setIsAuthenticated(false)
+      }
+    }
+    readAuth()
+    const handle = () => readAuth()
+    window.addEventListener("pg-auth-changed", handle as EventListener)
+    window.addEventListener("storage", handle)
+    return () => {
+      window.removeEventListener("pg-auth-changed", handle as EventListener)
+      window.removeEventListener("storage", handle)
+    }
+  }, [])
+
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem("pg_auth")
+      window.dispatchEvent(new CustomEvent("pg-auth-changed"))
+    } catch {}
+    setIsAuthenticated(false)
+  }
 
   return (
     <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-sm animate-in slide-in-from-top duration-500" role="navigation" aria-label="Main">
@@ -84,15 +112,26 @@ export function Navigation() {
                  />
                </Link>
              ))}
-             <Button
-               variant="outline"
-               size="sm"
-               onClick={() => setIsLoginModalOpen(true)}
-               className="ml-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
-             >
-               <LogIn className="h-4 w-4 mr-2" />
-               Login
-             </Button>
+            {!isAuthenticated ? (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsLoginModalOpen(true)}
+                className="ml-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+              >
+                <LogIn className="h-4 w-4 mr-2" />
+                Login
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleLogout}
+                className="ml-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+              >
+                Logout
+              </Button>
+            )}
            </div>
 
           {/* Mobile menu button */}
@@ -131,18 +170,32 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    setIsLoginModalOpen(true)
-                    setIsOpen(false)
-                  }}
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
-                >
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
+                {!isAuthenticated ? (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setIsLoginModalOpen(true)
+                      setIsOpen(false)
+                    }}
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                  >
+                    <LogIn className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      handleLogout()
+                      setIsOpen(false)
+                    }}
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                  >
+                    Logout
+                  </Button>
+                )}
               </div>
             </div>
           </div>
@@ -153,6 +206,7 @@ export function Navigation() {
       <LoginModal 
         isOpen={isLoginModalOpen} 
         onClose={() => setIsLoginModalOpen(false)} 
+        onLoginSuccess={() => setIsAuthenticated(true)}
       />
     </nav>
   )
