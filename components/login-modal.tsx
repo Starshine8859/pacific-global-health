@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -21,8 +22,10 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
   const [mode, setMode] = useState<"login" | "register">("login")
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
   const [confirmPassword, setConfirmPassword] = useState("")
+  const { theme, setTheme } = useTheme()
+  const [previousTheme, setPreviousTheme] = useState<string | undefined>(undefined)
 
-  // Handle escape key and body scroll lock
+  // Handle escape key and body scroll lock; force light theme while modal open
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -33,13 +36,16 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
     if (isOpen) {
       document.addEventListener("keydown", handleEscape)
       document.body.style.overflow = "hidden"
+      setPreviousTheme(theme)
+      setTheme("light")
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape)
       document.body.style.overflow = ""
+      if (previousTheme) setTheme(previousTheme)
     }
-  }, [isOpen, onClose])
+  }, [isOpen, onClose, setTheme, theme, previousTheme])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

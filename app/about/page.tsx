@@ -197,7 +197,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-3 gap-8 p-8">
                 <div className="relative h-64 md:h-auto">
                   <Image
-                    src="/professional-headshot-of-dr--sathira-perera.png"
+                    src="/IMG_9276.jpeg"
                     alt="Dr. Sathira Perera"
                     fill
                     className="object-cover rounded-lg"
@@ -208,7 +208,7 @@ export default function AboutPage() {
                     <h3 className="text-2xl font-bold text-foreground">Dr. Sathira Perera</h3>
                     <p className="text-lg text-primary font-medium">Founder & Chief Executive</p>
                     <Badge variant="outline" className="mt-2">
-                      MBBS, MCommMed, MHEconPol, PhD (Health Systems Research, UNSW)
+                      MBBS
                     </Badge>
                   </div>
                   <p className="text-muted-foreground text-pretty">

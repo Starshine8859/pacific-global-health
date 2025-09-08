@@ -2,7 +2,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Award, GraduationCap, Heart, Users, Globe, BookOpen } from "lucide-react"
+import { Award, GraduationCap, Heart, Users, Globe, BookOpen, Mail } from "lucide-react"
 import Image from "next/image"
 
 export default function LeadershipPage() {
@@ -30,7 +30,7 @@ export default function LeadershipPage() {
                 <div className="relative h-96 lg:h-auto">
                   <Image
                     src="/images/dr-sathira-perera.jpg"
-                    alt="Dr. Sathira Perera"
+                    alt="Dr. Sathira Kasun Perera (Dr. Sathi)"
                     fill
                     className="object-cover object-center"
                   />
@@ -38,23 +38,23 @@ export default function LeadershipPage() {
                 <div className="p-8 flex flex-col justify-center">
                   <CardHeader className="p-0 mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="outline">MBBS, FRACGP, MPH, PhD</Badge>
+                      <Badge variant="outline">MBBS (Hons)</Badge>
+                      <Badge variant="outline">PhD</Badge>
                     </div>
-                    <CardTitle className="text-3xl">Dr. Sathira Perera</CardTitle>
+                    <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>
                     <CardDescription className="text-lg text-primary font-medium">
-                      Founder, Director & Academic Lead
+                      Founder, Director & Academic Lead · also known as "Dr. Sathi"
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="p-0 space-y-6">
                     <p className="text-muted-foreground text-pretty leading-relaxed">
-                      Dr. Sathira Perera is the Founder, Director and the academic lead of Pacific Global Health.
-                      Being a primary care physician and a health systems specialist whose work spans medicine, research, and policy, Dr. Perera has dedicated his career to advancing health systems through evidence-based practice, innovative research, and strategic leadership.
+                      Based in The Oaks, New South Wales, Australia, Dr. Perera is the Founder, Director and the academic lead of Pacific Global Health. A primary care physician and health systems specialist whose work spans medicine, research, and policy, he is dedicated to advancing health systems through evidence-based practice, innovative research, and strategic leadership.
                     </p>
                     <p className="text-muted-foreground text-pretty leading-relaxed">
-                      He holds qualifications in medicine, public health, health economics and health services research, including a Scientia PhD from the University of New South Wales. His research in Health Economics and Policy has positioned him to critically analyse healthcare financing, resource allocation, and policy reforms that impact health equity and access.
+                      Clinically, he serves as a General Practitioner at The Oaks Medical Practice and works part-time in the Emergency Departments at Campbelltown and Camden Hospitals.
                     </p>
                     <p className="text-muted-foreground text-pretty leading-relaxed">
-                      Dr. Perera’s academic work reflects a strong commitment to bridging the gap between research and practice, ensuring that findings translate into meaningful improvements for communities and healthcare providers alike.
+                      He holds qualifications in medicine, public health, health economics and health services research, including a Scientia PhD from the University of New South Wales. His research in Health Economics and Policy focuses on healthcare financing, resource allocation, and policy reforms that impact health equity and access.
                     </p>
                     <p className="text-muted-foreground text-pretty leading-relaxed">
                       As an academic leader, Dr. Perera brings a unique blend of clinical insight, public health perspective, and policy acumen. His vision is to inspire collaboration, nurture future health professionals, and lead innovative initiatives that strengthen healthcare delivery both regionally and globally.
@@ -65,17 +65,31 @@ export default function LeadershipPage() {
                         <div>
                           <p className="font-medium text-sm">Academic Qualifications</p>
                           <p className="text-sm text-muted-foreground">
-                            MBBS, FRACGP, MPH, PhD (Scientia, UNSW) – Medicine, public health, health economics, and health services research
+                          MBBS (Hons) (University of Colombo); Diploma in Child Psychology (UK); Master of Community Medicine (University of Colombo); Master of Health Economics & Policy (University of Adelaide); Certificate in Emergency Medicine (ACEM); PhD in Cancer Therapy (UNSW)
                           </p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
-                        <Award className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="font-medium text-sm">Professional Recognition</p>
+                          <p className="font-medium text-sm">Director Contact</p>
+                          <p className="text-sm text-muted-foreground">director@pacificglobal.org</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Users className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-sm">Clinical Role</p>
                           <p className="text-sm text-muted-foreground">
-                            Fellow of the Royal Australian College of General Practitioners
+                            General Practitioner at The Oaks Medical Practice; part-time Emergency Medicine at Campbelltown and Camden Hospitals
                           </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-sm">Practice Location</p>
+                          <p className="text-sm text-muted-foreground">The Oaks, NSW, Australia</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -93,6 +107,22 @@ export default function LeadershipPage() {
                           <p className="font-medium text-sm">Mission-Driven Leadership</p>
                           <p className="text-sm text-muted-foreground">
                             Committed to sustainable healthcare transformation, capacity building, and nurturing future leaders
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Heart className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-sm">Special Interests</p>
+                          <p className="text-sm text-muted-foreground">General medicine, paediatrics, cancer therapy, nutrition, emergency medicine</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="font-medium text-sm">Research Contributions</p>
+                          <p className="text-sm text-muted-foreground">
+                            Lead author (UNSW) on a Lancet Oncology study projecting significant rise in global demand for cancer surgery by 2040; informs health technology assessment and resource allocation strategies
                           </p>
                         </div>
                       </div>

@@ -17,15 +17,15 @@ export default function ContactPage() {
     },
     {
       icon: MapPin,
-      title: "Region",
-      details: "Asia-Pacific",
-      description: "Serving communities across the region",
+      title: "Address",
+      details: "Pacific Global Health, 200 Gilchrist Dr, Campbelltown NSW 2560",
+      description: "Visit or write to our main office",
     },
     {
       icon: Phone,
       title: "Phone",
       details: "1800 123 456 ",
-      description: "Mon – Fri 09:00 to 17:00 (AEST)",
+      description: "Mon – Fri 09:00 to 16:00 (AEST)",
     },
     {
       icon: Clock,
@@ -85,9 +85,7 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <p className="font-medium text-foreground">General Inquiries</p>
-                      <p className="text-muted-foreground">director@pacificglobal.org</p>
                       <p className="text-muted-foreground">info@pacificglobal.org</p>
-                      <p className="text-muted-foreground">training@pacificglobal.org</p>
                     </div>
                   </div>
 

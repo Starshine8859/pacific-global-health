@@ -114,11 +114,11 @@ export function Footer() {
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1 hover:text-primary transition-colors duration-300 cursor-pointer">
               <MapPin className="h-4 w-4" />
-              <span>Asia-Pacific Region</span>
+              <span>Pacific Global Health, 200 Gilchrist Dr, Campbelltown NSW 2560</span>
             </div>
             <div className="flex items-center gap-1 hover:text-primary transition-colors duration-300 cursor-pointer">
               <Mail className="h-4 w-4" />
-              <span>Contact Us</span>
+              <span>Mon – Fri 09:00 to 16:00</span>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { Starfield } from "@/components/starfield"
 
 export function HeroSection() {
   const [displayedText, setDisplayedText] = useState("")
@@ -38,7 +39,11 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 perspective-1000">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-black">
+      {/* Starfield above video but below content */}
+      <div className="absolute inset-0 z-[5] pointer-events-none">
+        <Starfield />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Content Section */}
@@ -71,8 +76,8 @@ export function HeroSection() {
           </div>
 
           {/* Video Section */}
-          <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-1/2 transform-gpu preserve-3d">
-            <div className={`relative aspect-video sm:aspect-[4/3] rounded-2xl overflow-hidden ${prefersReducedMotion ? "" : "animate-in fade-in slide-in-from-right duration-1000 delay-500"} max-w-2xl lg:max-w-md mx-auto transform-gpu preserve-3d ${prefersReducedMotion ? "" : "hover:rotate-y-6 hover:rotate-x-3 hover:scale-105 hover:translate-z-8"} transition-all duration-700 hover:shadow-2xl`}>
+          <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-1/2 relative z-[1]">
+            <div className="relative aspect-video sm:aspect-[4/3] max-w-2xl lg:max-w-md mx-auto bg-black">
               {prefersReducedMotion ? (
                 <div className="w-full h-full bg-black/10 flex items-center justify-center text-white/70 text-sm">Video preview disabled</div>
               ) : (
@@ -81,19 +86,12 @@ export function HeroSection() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-contain relative z-10 transform-gpu preserve-3d hover:scale-110 transition-all duration-500"
+                  className="w-full h-full object-contain bg-black"
                 >
-                  <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hailuo_Video_make%20the%20globe%20roate%20around%20it_416252760809857026-g6w9tLDzBNthLYf6YfOwDexpJKyg0H.mp4" type="video/mp4" />
+                  <source src="/mainvideo.mp4" type="video/mp4" />
                 </video>
               )}
-
-              {!prefersReducedMotion && (
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-float-1 transform-gpu"></div>
-                  <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-cyan-400/40 rounded-full animate-float-2 transform-gpu"></div>
-                  <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-primary/30 rounded-full animate-float-3 transform-gpu"></div>
-                </div>
-              )}
+              
             </div>
           </div>
         </div>

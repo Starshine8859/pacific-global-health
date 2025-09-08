@@ -46,6 +46,12 @@ export default function TrainingPage() {
               </p>
             </div>
 
+            <div className="max-w-3xl mx-auto mb-12 text-center">
+              <p className="text-muted-foreground">
+                Training enquiries: <a href="mailto:training@pacificglobal.org" className="text-primary underline">training@pacificglobal.org</a>
+              </p>
+            </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
                 <GraduationCap className="h-12 w-12 text-primary mx-auto mb-4" />

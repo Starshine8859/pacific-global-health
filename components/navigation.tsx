@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, LogIn } from "lucide-react"
+import { Menu, X, LogIn, LogOut } from "lucide-react"
 import { useEffect } from "react"
 import { LoginModal } from "@/components/login-modal"
 
@@ -13,6 +13,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [userEmail, setUserEmail] = useState<string | null>(null)
+  const [userName, setUserName] = useState<string | null>(null)
   const pathname = usePathname()
 
   const navItems = [
@@ -53,9 +55,15 @@ export function Navigation() {
     const readAuth = () => {
       try {
         const raw = localStorage.getItem("pg_auth")
-        setIsAuthenticated(!!(raw && JSON.parse(raw)?.user))
+        const parsed = raw ? JSON.parse(raw) : null
+        const user = parsed?.user
+        setIsAuthenticated(!!user)
+        setUserEmail(user?.email ?? null)
+        setUserName(user?.name ?? null)
       } catch {
         setIsAuthenticated(false)
+        setUserEmail(null)
+        setUserName(null)
       }
     }
     readAuth()
@@ -112,26 +120,29 @@ export function Navigation() {
                  />
                </Link>
              ))}
-            {!isAuthenticated ? (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setIsLoginModalOpen(true)}
-                className="ml-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                <LogIn className="h-4 w-4 mr-2" />
-                Login
-              </Button>
-            ) : (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleLogout}
-                className="ml-4 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                Logout
-              </Button>
-            )}
+            <div className="flex items-center gap-3 ml-4">
+              {!isAuthenticated ? (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsLoginModalOpen(true)}
+                  className="text-primary hover:bg-primary hover:text-white transition-all duration-300 bg-white"
+                >
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              ) : (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleLogout}
+                  className="text-primary hover:bg-primary hover:text-white transition-all duration-300 bg-white"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              )}
+            </div>
            </div>
 
           {/* Mobile menu button */}
