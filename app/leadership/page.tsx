@@ -39,20 +39,20 @@ export default function LeadershipPage() {
                   <CardHeader className="p-0 mb-6">
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="outline">MBBS (Hons)</Badge>
-                      <Badge variant="outline">PhD</Badge>
+                      {/* <Badge variant="outline">PhD</Badge> */}
                     </div>
                     <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>
-                    <CardDescription className="text-lg text-primary font-medium">
+                    {/* <CardDescription className="text-lg text-primary font-medium">
                       Founder, Director & Academic Lead · also known as "Dr. Sathi"
-                    </CardDescription>
+                    </CardDescription> */}
                   </CardHeader>
                   <CardContent className="p-0 space-y-6">
                     <p className="text-muted-foreground text-pretty leading-relaxed">
                       Based in The Oaks, New South Wales, Australia, Dr. Perera is the Founder, Director and the academic lead of Pacific Global Health. A primary care physician and health systems specialist whose work spans medicine, research, and policy, he is dedicated to advancing health systems through evidence-based practice, innovative research, and strategic leadership.
                     </p>
-                    <p className="text-muted-foreground text-pretty leading-relaxed">
+                    {/* <p className="text-muted-foreground text-pretty leading-relaxed">
                       Clinically, he serves as a General Practitioner at The Oaks Medical Practice and works part-time in the Emergency Departments at Campbelltown and Camden Hospitals.
-                    </p>
+                    </p> */}
                     <p className="text-muted-foreground text-pretty leading-relaxed">
                       He holds qualifications in medicine, public health, health economics and health services research, including a Scientia PhD from the University of New South Wales. His research in Health Economics and Policy focuses on healthcare financing, resource allocation, and policy reforms that impact health equity and access.
                     </p>
@@ -85,13 +85,13 @@ export default function LeadershipPage() {
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      {/* <div className="flex items-start gap-3">
                         <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="font-medium text-sm">Practice Location</p>
                           <p className="text-sm text-muted-foreground">The Oaks, NSW, Australia</p>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="flex items-start gap-3">
                         <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
@@ -101,7 +101,7 @@ export default function LeadershipPage() {
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3">
+                      {/* <div className="flex items-start gap-3">
                         <Heart className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="font-medium text-sm">Mission-Driven Leadership</p>
@@ -116,8 +116,8 @@ export default function LeadershipPage() {
                           <p className="font-medium text-sm">Special Interests</p>
                           <p className="text-sm text-muted-foreground">General medicine, paediatrics, cancer therapy, nutrition, emergency medicine</p>
                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
+                      </div> */}
+                      {/* <div className="flex items-start gap-3">
                         <Award className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                           <p className="font-medium text-sm">Research Contributions</p>
@@ -125,7 +125,7 @@ export default function LeadershipPage() {
                             Lead author (UNSW) on a Lancet Oncology study projecting significant rise in global demand for cancer surgery by 2040; informs health technology assessment and resource allocation strategies
                           </p>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </CardContent>
                 </div>
