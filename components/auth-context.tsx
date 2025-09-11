@@ -6,6 +6,7 @@ interface User {
   id: string
   username: string
   email: string
+  role: 'admin' | 'user'
   createdAt: string
   lastLogin?: string
 }
@@ -27,10 +28,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Check for existing auth data on mount
+    const storedAuth = localStorage.getItem('pg_auth')
     const storedToken = localStorage.getItem('token')
     const storedUser = localStorage.getItem('user')
 
-    if (storedToken && storedUser) {
+    if (storedAuth) {
+      try {
+        const authData = JSON.parse(storedAuth)
+        if (authData.user) {
+          setToken('dummy-token') // For compatibility with existing code
+          setUser(authData.user)
+        }
+      } catch (error) {
+        console.error('Error parsing stored auth data:', error)
+        localStorage.removeItem('pg_auth')
+      }
+    } else if (storedToken && storedUser) {
       try {
         const userData = JSON.parse(storedUser)
         setToken(storedToken)
@@ -47,6 +60,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = (newToken: string, newUser: User) => {
     setToken(newToken)
     setUser(newUser)
+    localStorage.setItem('pg_auth', JSON.stringify({ user: newUser }))
     localStorage.setItem('token', newToken)
     localStorage.setItem('user', JSON.stringify(newUser))
   }
@@ -54,6 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setToken(null)
     setUser(null)
+    localStorage.removeItem('pg_auth')
     localStorage.removeItem('token')
     localStorage.removeItem('user')
   }

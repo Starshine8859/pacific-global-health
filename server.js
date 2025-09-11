@@ -106,6 +106,125 @@ userSchema.index({ username: 1 });
 
 const User = mongoose.model('User', userSchema);
 
+// Contact Schema
+const contactSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: [true, 'First name is required'],
+        trim: true,
+        maxlength: [50, 'First name cannot exceed 50 characters']
+    },
+    lastName: {
+        type: String,
+        required: [true, 'Last name is required'],
+        trim: true,
+        maxlength: [50, 'Last name cannot exceed 50 characters']
+    },
+    email: {
+        type: String,
+        required: [true, 'Email is required'],
+        lowercase: true,
+        trim: true,
+        match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email']
+    },
+    organization: {
+        type: String,
+        trim: true,
+        maxlength: [100, 'Organization name cannot exceed 100 characters']
+    },
+    subject: {
+        type: String,
+        required: [true, 'Subject is required'],
+        trim: true,
+        maxlength: [200, 'Subject cannot exceed 200 characters']
+    },
+    message: {
+        type: String,
+        required: [true, 'Message is required'],
+        trim: true,
+        maxlength: [2000, 'Message cannot exceed 2000 characters']
+    },
+    status: {
+        type: String,
+        enum: ['new', 'in_progress', 'resolved', 'closed'],
+        default: 'new'
+    },
+    ipAddress: {
+        type: String,
+        required: false
+    },
+    userAgent: {
+        type: String,
+        required: false
+    }
+}, {
+    timestamps: true // Adds createdAt and updatedAt automatically
+});
+
+// Index for better performance
+contactSchema.index({ email: 1 });
+contactSchema.index({ status: 1 });
+contactSchema.index({ createdAt: -1 });
+
+const Contact = mongoose.model('Contact', contactSchema);
+
+// Training Application Schema
+const trainingApplicationSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'Full name is required'],
+        trim: true,
+        maxlength: [100, 'Name cannot exceed 100 characters']
+    },
+    email: {
+        type: String,
+        required: [true, 'Email is required'],
+        lowercase: true,
+        trim: true,
+        match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email']
+    },
+    phone: {
+        type: String,
+        required: [true, 'Phone number is required'],
+        trim: true,
+        maxlength: [20, 'Phone number cannot exceed 20 characters']
+    },
+    program: {
+        type: String,
+        enum: ['internship', 'elective', 'training', 'scholarship'],
+        required: [true, 'Program selection is required']
+    },
+    inquiry: {
+        type: String,
+        required: [true, 'Inquiry is required'],
+        trim: true,
+        maxlength: [2000, 'Inquiry cannot exceed 2000 characters']
+    },
+    status: {
+        type: String,
+        enum: ['new', 'under_review', 'accepted', 'rejected', 'completed'],
+        default: 'new'
+    },
+    ipAddress: {
+        type: String,
+        required: false
+    },
+    userAgent: {
+        type: String,
+        required: false
+    }
+}, {
+    timestamps: true // Adds createdAt and updatedAt automatically
+});
+
+// Index for better performance
+trainingApplicationSchema.index({ email: 1 });
+trainingApplicationSchema.index({ program: 1 });
+trainingApplicationSchema.index({ status: 1 });
+trainingApplicationSchema.index({ createdAt: -1 });
+
+const TrainingApplication = mongoose.model('TrainingApplication', trainingApplicationSchema);
+
 // JWT Secret
 const JWT_SECRET = config.JWT_SECRET;
 
@@ -430,6 +549,315 @@ app.post('/api/logout', authenticateToken, (req, res) => {
         message: 'Logged out successfully',
         success: true
     });
+});
+
+// Contact Form Route
+app.post('/api/contact', async (req, res) => {
+    try {
+        const { firstName, lastName, email, organization, subject, message } = req.body;
+
+        // Validation
+        if (!firstName || !lastName || !email || !subject || !message) {
+            return res.status(400).json({
+                message: 'First name, last name, email, subject, and message are required',
+                error: 'MISSING_FIELDS'
+            });
+        }
+
+        // Email validation
+        const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({
+                message: 'Please enter a valid email address',
+                error: 'INVALID_EMAIL'
+            });
+        }
+
+        // Create new contact entry
+        const newContact = new Contact({
+            firstName: firstName.trim(),
+            lastName: lastName.trim(),
+            email: email.toLowerCase().trim(),
+            organization: organization ? organization.trim() : undefined,
+            subject: subject.trim(),
+            message: message.trim(),
+            ipAddress: req.ip || req.connection.remoteAddress,
+            userAgent: req.get('User-Agent')
+        });
+
+        const savedContact = await newContact.save();
+
+        // Log contact submission
+        console.log(`New contact form submitted: ${savedContact.firstName} ${savedContact.lastName} (${savedContact.email})`);
+
+        res.status(201).json({
+            message: 'Contact form submitted successfully',
+            success: true,
+            contactId: savedContact._id
+        });
+
+    } catch (error) {
+        console.error('Contact form error:', error);
+
+        // Handle validation errors
+        if (error.name === 'ValidationError') {
+            const errors = Object.values(error.errors).map(err => err.message);
+            return res.status(400).json({
+                message: 'Validation error',
+                error: 'VALIDATION_ERROR',
+                details: errors
+            });
+        }
+
+        res.status(500).json({
+            message: 'Server error during contact form submission',
+            error: 'SERVER_ERROR'
+        });
+    }
+});
+
+// Get Contact Messages Route (Admin only)
+app.get('/api/contact', authenticateToken, async (req, res) => {
+    try {
+        const { page = 1, limit = 10, status } = req.query;
+        const skip = (page - 1) * limit;
+
+        // Build query
+        const query = {};
+        if (status) {
+            query.status = status;
+        }
+
+        // Get contacts with pagination
+        const contacts = await Contact.find(query)
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(parseInt(limit))
+            .lean();
+
+        // Get total count
+        const total = await Contact.countDocuments(query);
+
+        res.json({
+            success: true,
+            contacts,
+            pagination: {
+                page: parseInt(page),
+                limit: parseInt(limit),
+                total,
+                pages: Math.ceil(total / limit)
+            }
+        });
+
+    } catch (error) {
+        console.error('Get contacts error:', error);
+        res.status(500).json({
+            message: 'Server error fetching contacts',
+            error: 'SERVER_ERROR'
+        });
+    }
+});
+
+// Update Contact Status Route (Admin only)
+app.put('/api/contact/:id/status', authenticateToken, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+
+        if (!status || !['new', 'in_progress', 'resolved', 'closed'].includes(status)) {
+            return res.status(400).json({
+                message: 'Valid status is required',
+                error: 'INVALID_STATUS'
+            });
+        }
+
+        const contact = await Contact.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true, runValidators: true }
+        );
+
+        if (!contact) {
+            return res.status(404).json({
+                message: 'Contact not found',
+                error: 'CONTACT_NOT_FOUND'
+            });
+        }
+
+        res.json({
+            message: 'Contact status updated successfully',
+            success: true,
+            contact
+        });
+
+    } catch (error) {
+        console.error('Update contact status error:', error);
+        res.status(500).json({
+            message: 'Server error updating contact status',
+            error: 'SERVER_ERROR'
+        });
+    }
+});
+
+// Training Applications Routes
+
+// Submit Training Application Route
+app.post('/api/trainings', async (req, res) => {
+    try {
+        const { name, email, phone, program, inquiry } = req.body;
+
+        // Validation
+        if (!name || !email || !phone || !program || !inquiry) {
+            return res.status(400).json({
+                message: 'All fields are required',
+                error: 'MISSING_FIELDS'
+            });
+        }
+
+        // Email validation
+        const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({
+                message: 'Please enter a valid email address',
+                error: 'INVALID_EMAIL'
+            });
+        }
+
+        // Program validation
+        const validPrograms = ['internship', 'elective', 'training', 'scholarship'];
+        if (!validPrograms.includes(program)) {
+            return res.status(400).json({
+                message: 'Please select a valid program',
+                error: 'INVALID_PROGRAM'
+            });
+        }
+
+        // Create new training application
+        const newApplication = new TrainingApplication({
+            name: name.trim(),
+            email: email.toLowerCase().trim(),
+            phone: phone.trim(),
+            program: program,
+            inquiry: inquiry.trim(),
+            ipAddress: req.ip || req.connection.remoteAddress,
+            userAgent: req.get('User-Agent')
+        });
+
+        const savedApplication = await newApplication.save();
+
+        // Log application submission
+        console.log(`New training application submitted: ${savedApplication.name} (${savedApplication.email}) - ${savedApplication.program}`);
+
+        res.status(201).json({
+            message: 'Training application submitted successfully',
+            success: true,
+            applicationId: savedApplication._id
+        });
+
+    } catch (error) {
+        console.error('Training application error:', error);
+
+        // Handle validation errors
+        if (error.name === 'ValidationError') {
+            const errors = Object.values(error.errors).map(err => err.message);
+            return res.status(400).json({
+                message: 'Validation error',
+                error: 'VALIDATION_ERROR',
+                details: errors
+            });
+        }
+
+        res.status(500).json({
+            message: 'Server error during training application submission',
+            error: 'SERVER_ERROR'
+        });
+    }
+});
+
+// Get Training Applications Route (Admin only)
+app.get('/api/trainings', authenticateToken, async (req, res) => {
+    try {
+        const { page = 1, limit = 10, program, status } = req.query;
+        const skip = (page - 1) * limit;
+
+        // Build query
+        const query = {};
+        if (program) {
+            query.program = program;
+        }
+        if (status) {
+            query.status = status;
+        }
+
+        // Get applications with pagination
+        const applications = await TrainingApplication.find(query)
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(parseInt(limit))
+            .lean();
+
+        // Get total count
+        const total = await TrainingApplication.countDocuments(query);
+
+        res.json({
+            success: true,
+            applications,
+            pagination: {
+                page: parseInt(page),
+                limit: parseInt(limit),
+                total,
+                pages: Math.ceil(total / limit)
+            }
+        });
+
+    } catch (error) {
+        console.error('Get training applications error:', error);
+        res.status(500).json({
+            message: 'Server error fetching training applications',
+            error: 'SERVER_ERROR'
+        });
+    }
+});
+
+// Update Training Application Status Route (Admin only)
+app.put('/api/trainings/:id/status', authenticateToken, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+
+        if (!status || !['new', 'under_review', 'accepted', 'rejected', 'completed'].includes(status)) {
+            return res.status(400).json({
+                message: 'Valid status is required',
+                error: 'INVALID_STATUS'
+            });
+        }
+
+        const application = await TrainingApplication.findByIdAndUpdate(
+            id,
+            { status },
+            { new: true, runValidators: true }
+        );
+
+        if (!application) {
+            return res.status(404).json({
+                message: 'Training application not found',
+                error: 'APPLICATION_NOT_FOUND'
+            });
+        }
+
+        res.json({
+            message: 'Training application status updated successfully',
+            success: true,
+            application
+        });
+
+    } catch (error) {
+        console.error('Update training application status error:', error);
+        res.status(500).json({
+            message: 'Server error updating training application status',
+            error: 'SERVER_ERROR'
+        });
+    }
 });
 
 // Error handling middleware

@@ -1,3 +1,5 @@
+"use client"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -5,9 +7,68 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, MapPin, Phone, Clock, Send } from "lucide-react"
+import { Mail, MapPin, Phone, Clock, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { useState } from "react"
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    organization: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          organization: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage(data.message || 'Failed to send message. Please try again.')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   const contactInfo = [
     {
       icon: Mail,
@@ -100,40 +161,114 @@ export default function ContactPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4">
+                  {/* Success Message */}
+                  {submitStatus === 'success' && (
+                    <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-md flex items-center gap-2 text-green-800">
+                      <CheckCircle className="h-5 w-5" />
+                      <span>Message sent successfully! We'll get back to you within 24-48 hours.</span>
+                    </div>
+                  )}
+
+                  {/* Error Message */}
+                  {submitStatus === 'error' && (
+                    <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-md flex items-center gap-2 text-red-800">
+                      <AlertCircle className="h-5 w-5" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name</Label>
-                        <Input id="firstName" placeholder="Enter your first name" />
+                        <Label htmlFor="firstName">First Name *</Label>
+                        <Input 
+                          id="firstName" 
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          placeholder="Enter your first name" 
+                          required
+                          disabled={isSubmitting}
+                        />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
-                        <Input id="lastName" placeholder="Enter your last name" />
+                        <Label htmlFor="lastName">Last Name *</Label>
+                        <Input 
+                          id="lastName" 
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          placeholder="Enter your last name" 
+                          required
+                          disabled={isSubmitting}
+                        />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="Enter your email address" />
+                      <Label htmlFor="email">Email *</Label>
+                      <Input 
+                        id="email" 
+                        name="email"
+                        type="email" 
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Enter your email address" 
+                        required
+                        disabled={isSubmitting}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="organization">Organization (Optional)</Label>
-                      <Input id="organization" placeholder="Enter your organization name" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input id="subject" placeholder="What is this regarding?" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us more about your inquiry..."
-                        className="min-h-[120px]"
+                      <Input 
+                        id="organization" 
+                        name="organization"
+                        value={formData.organization}
+                        onChange={handleInputChange}
+                        placeholder="Enter your organization name" 
+                        disabled={isSubmitting}
                       />
                     </div>
-                    <Button type="submit" className="w-full group">
-                      Send Message
-                      <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <div className="space-y-2">
+                      <Label htmlFor="subject">Subject *</Label>
+                      <Input 
+                        id="subject" 
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        placeholder="What is this regarding?" 
+                        required
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Message *</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Tell us more about your inquiry..."
+                        className="min-h-[120px]"
+                        required
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full group" 
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

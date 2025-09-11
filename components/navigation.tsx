@@ -120,6 +120,21 @@ export function Navigation() {
                  />
                </Link>
              ))}
+             {isAuthenticated && (
+               <Link
+                 href="/admin"
+                 className={`relative text-sm font-medium transition-all duration-300 uppercase tracking-wide transform hover:scale-105 animate-in fade-in slide-in-from-top ${
+                   isActive('/admin') ? 'text-primary' : 'text-gray-700 hover:text-primary'
+                 }`}
+               >
+                 ADMIN
+                 <span
+                   className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                     isActive('/admin') ? 'w-full' : 'w-0 group-hover:w-full'
+                   }`}
+                 />
+               </Link>
+             )}
             <div className="flex items-center gap-3 ml-4">
               {!isAuthenticated ? (
                 <Button
@@ -180,6 +195,19 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
+              {isAuthenticated && (
+                <Link
+                  href="/admin"
+                  className={`block px-3 py-2 text-sm font-medium transition-all duration-300 uppercase tracking-wide rounded-md ${
+                    isActive('/admin')
+                      ? 'text-primary bg-primary/10'
+                      : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  ADMIN
+                </Link>
+              )}
               <div className="px-3 py-2">
                 {!isAuthenticated ? (
                   <Button

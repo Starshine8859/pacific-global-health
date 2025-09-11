@@ -15,6 +15,7 @@ interface LoginModalProps {
 
 export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps) {
   const [email, setEmail] = useState("")
+  const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -64,7 +65,7 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(mode === "login" ? { email, password } : { email, password, username }),
       })
 
       const data = await res.json()
@@ -92,14 +93,9 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
           window.dispatchEvent(new CustomEvent("pg-auth-changed"))
           onLoginSuccess?.(user)
         } catch {}
-        if (data?.user?.role === "admin") {
-          window.location.href = "/admin"
-          return
-        }
-        onClose()
-        setEmail("")
-        setPassword("")
-        setConfirmPassword("")
+        // Redirect all logged-in users to admin page regardless of role
+        window.location.href = "/admin"
+        return
       }
     } catch (err) {
       setError("Network error. Please try again.")
@@ -145,6 +141,23 @@ export function LoginModal({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
               {error}
             </div>
           )}
+          {mode === "register" && (
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-sm font-medium text-gray-700">
+                Username
+              </Label>
+              <Input
+                id="username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Choose a username"
+                required
+                className="w-full"
+              />
+            </div>
+          )}
+
           <div className="space-y-2">
             <Label htmlFor="email" className="text-sm font-medium text-gray-700">
               Email Address

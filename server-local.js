@@ -19,17 +19,17 @@ const connectDB = async () => {
     try {
         // Try local MongoDB first, then fallback to Atlas
         const localUri = "mongodb://localhost:27017/pacific-global-health";
-        const atlasUri = "mongodb+srv://globalhealth:ydtpHayBnv7YYl0U@cluster0.qlxqtts.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+        const atlasUri = "mongodb+srv://globalhealth:kTTTqqjoM4kcQg2b@cluster0.qlxqtts.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
         
         let conn;
-        try {
-            console.log('🔄 Trying local MongoDB connection...');
-            conn = await mongoose.connect(localUri, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            });
-            console.log('✅ Connected to LOCAL MongoDB!');
-        } catch (localError) {
+        // try {
+        //     console.log('🔄 Trying local MongoDB connection...');
+        //     conn = await mongoose.connect(localUri, {
+        //         useNewUrlParser: true,
+        //         useUnifiedTopology: true,
+        //     });
+        //     console.log('✅ Connected to LOCAL MongoDB!');
+        // } catch (localError) {
             console.log('❌ Local MongoDB not available, trying Atlas...');
             conn = await mongoose.connect(atlasUri, {
                 useNewUrlParser: true,
@@ -44,7 +44,7 @@ const connectDB = async () => {
                 }
             });
             console.log('✅ Connected to MongoDB Atlas!');
-        }
+        // }
         
         console.log(`📊 Host: ${conn.connection.host}`);
         console.log(`🗄️  Database: ${conn.connection.name}`);

@@ -1,3 +1,5 @@
+"use client"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
@@ -5,10 +7,67 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { GraduationCap, BookOpen, Users, Award } from "lucide-react"
+import { GraduationCap, BookOpen, Users, Award, CheckCircle, AlertCircle } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
 export default function TrainingPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    program: '',
+    inquiry: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/trainings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          program: '',
+          inquiry: ''
+        })
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage(data.message || 'Failed to submit application. Please try again.')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -133,28 +192,75 @@ export default function TrainingPage() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <form className="space-y-6">
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md flex items-center gap-2 text-green-800">
+                  <CheckCircle className="h-5 w-5" />
+                  <span>Application submitted successfully! We'll review your application and get back to you within 5-7 business days.</span>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md flex items-center gap-2 text-red-800">
+                  <AlertCircle className="h-5 w-5" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name *</Label>
-                    <Input id="name" placeholder="Enter your full name" required />
+                    <Input 
+                      id="name" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Enter your full name" 
+                      required
+                      disabled={isSubmitting}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address *</Label>
-                    <Input id="email" type="email" placeholder="Enter your email address" required />
+                    <Input 
+                      id="email" 
+                      name="email"
+                      type="email" 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Enter your email address" 
+                      required
+                      disabled={isSubmitting}
+                    />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Telephone Number *</Label>
-                    <Input id="phone" type="tel" placeholder="Enter your phone number" required />
+                    <Input 
+                      id="phone" 
+                      name="phone"
+                      type="tel" 
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Enter your phone number" 
+                      required
+                      disabled={isSubmitting}
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="program">Program of Interest</Label>
+                    <Label htmlFor="program">Program of Interest *</Label>
                     <select
                       id="program"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      required
+                      disabled={isSubmitting}
                     >
                       <option value="">Select a program</option>
                       <option value="internship">Internship</option>
@@ -169,15 +275,31 @@ export default function TrainingPage() {
                   <Label htmlFor="inquiry">Your Inquiry *</Label>
                   <Textarea
                     id="inquiry"
+                    name="inquiry"
+                    value={formData.inquiry}
+                    onChange={handleInputChange}
                     placeholder="Please describe your background, interests, and what you hope to achieve through our programs..."
                     rows={6}
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <div className="text-center">
-                  <Button type="submit" size="lg" className="px-8">
-                    Submit Application
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="px-8" 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Submitting...
+                      </>
+                    ) : (
+                      'Submit Application'
+                    )}
                   </Button>
                 </div>
               </form>
