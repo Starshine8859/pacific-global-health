@@ -211,9 +211,9 @@ export default function AboutPage() {
                       MBBS
                     </Badge>
                   </div>
-                  <p className="text-muted-foreground text-pretty">
+                  {/* <p className="text-muted-foreground text-pretty">
                     Dr. Perera brings extensive experience in primary care, public health, and health systems development. With qualifications in medicine, community medicine, health economics & policy, and a PhD in Health Systems Research (Cancer Therapy) from UNSW, he has dedicated his career to improving healthcare access and quality across diverse communities.
-                  </p>
+                  </p> */}
                   <p className="text-muted-foreground text-pretty">
                     His vision for Pacific Global Health stems from years of frontline healthcare experience and a deep understanding of the systemic challenges facing health systems in the Asia-Pacific region.
                   </p>
