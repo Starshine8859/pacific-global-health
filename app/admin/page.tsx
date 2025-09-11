@@ -33,7 +33,7 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between cursor-default select-none">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Admin Dashboard</h1>
           <p className="text-sm text-muted-foreground">Quick overview of recent activity and key metrics.</p>
@@ -41,7 +41,7 @@ export default function AdminDashboardPage() {
         <Button className="px-4">Create Report</Button>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 cursor-default select-none">
         <Card className="bg-card border-border">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm text-muted-foreground">Users (Today Logins)</CardTitle>

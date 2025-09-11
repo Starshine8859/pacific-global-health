@@ -110,6 +110,13 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </header>
+      {/* Mobile top tabs */}
+      <div className="lg:hidden border-b border-border bg-background/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center gap-2">
+          <span className="px-3 py-1 text-xs rounded bg-primary/10 text-primary">Admin</span>
+          <Link href="/" className="px-3 py-1 text-xs rounded hover:bg-accent/20 text-foreground">User</Link>
+        </div>
+      </div>
       <div className="flex-1 grid grid-cols-[240px_1fr]">
         <aside className="border-r border-border bg-card p-4 space-y-4 overflow-auto" style={{ height: "calc(100vh - 64px - 80px)" }}>
           <div>

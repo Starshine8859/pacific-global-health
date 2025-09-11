@@ -50,10 +50,7 @@ export function HeroSection() {
           <div className="flex-1 text-white order-2 lg:order-1 transform-gpu preserve-3d">
             <div className={`space-y-8 ${prefersReducedMotion ? "" : "animate-in fade-in slide-in-from-bottom duration-1000"} transform-gpu preserve-3d hover:translate-z-4 transition-all duration-700`}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-balance leading-tight transform-gpu preserve-3d hover:rotate-x-2 hover:translate-z-8 transition-all duration-700">
-                <span className="relative inline-block transform-gpu preserve-3d hover:scale-105 hover:rotate-y-2 transition-all duration-500">
-                  {displayedText}
-                  <span className="animate-pulse">|</span>
-                </span>
+                <span className="relative inline-block transform-gpu preserve-3d hover:scale-105 hover:rotate-y-2 transition-all duration-500">{displayedText}</span>
               </h1>
 
               <p className={`text-lg md:text-xl text-white/90 text-pretty leading-relaxed ${prefersReducedMotion ? "" : "animate-in fade-in slide-in-from-bottom duration-1000 delay-1000"} transform-gpu preserve-3d hover:translate-z-4 hover:rotate-x-1 transition-all duration-500`}>
