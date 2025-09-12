@@ -27,18 +27,19 @@ export default function LeadershipPage() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <Card className="overflow-hidden mb-12">
               <div className="grid lg:grid-cols-2 gap-0">
-                <div className="relative h-96 lg:h-auto">
+                <div className="relative h-80 sm:h-96 lg:h-full bg-black/5">
                   <Image
                     src="/images/dr-sathira-perera.jpg"
                     alt="Dr. Sathira Kasun Perera (Dr. Sathi)"
                     fill
-                    className="object-cover object-center"
+                    className="object-contain object-center"
+                    priority
                   />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <CardHeader className="p-0 mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="outline">MBBS</Badge>
+                      <Badge variant="outline">MBBS (Hons)</Badge>
                       {/* <Badge variant="outline">PhD</Badge> */}
                     </div>
                     <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>

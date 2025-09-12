@@ -208,7 +208,7 @@ export default function AboutPage() {
                     <h3 className="text-2xl font-bold text-foreground">Dr. Sathira Perera</h3>
                     <p className="text-lg text-primary font-medium">Founder and Director of Pacific Global Health</p>
                     <Badge variant="outline" className="mt-2">
-                      MBBS
+                      MBBS (Hons)
                     </Badge>
                   </div>
                   {/* <p className="text-muted-foreground text-pretty">

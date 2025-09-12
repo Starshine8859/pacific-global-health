@@ -85,7 +85,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: "1800 123 456 ",
+      details: "1300 228 150 ",
       description: "Mon – Fri 09:00 to 16:00 (AEST)",
     },
     {
