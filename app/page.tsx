@@ -29,8 +29,7 @@ export default function HomePage() {
                 <h2 className="text-2xl font-bold text-foreground">Dr. Sathira Kasun Perera</h2>
                 <p className="text-primary font-medium">Founder, Director & Academic Lead</p>
                 <p className="text-muted-foreground text-pretty">
-                  General Practitioner at The Oaks Medical Practice; part-time Emergency Medicine at Campbelltown and
-                  Camden Hospitals. Based in The Oaks, NSW, Australia.
+                Dr Sathira Perera, Founder and Director of Pacific Global Health, is a primary care physician and health systems specialist whose interdisciplinary expertise in medicine, public health, health economics and policy drives his commitment to advancing equitable, evidence-based healthcare locally and globally.
                 </p>
                 <div>
                   <a href="/leadership" className="text-primary hover:underline">Read full profile →</a>

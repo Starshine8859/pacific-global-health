@@ -215,7 +215,7 @@ export default function AboutPage() {
                     Dr. Perera brings extensive experience in primary care, public health, and health systems development. With qualifications in medicine, community medicine, health economics & policy, and a PhD in Health Systems Research (Cancer Therapy) from UNSW, he has dedicated his career to improving healthcare access and quality across diverse communities.
                   </p> */}
                   <p className="text-muted-foreground text-pretty">
-                    His vision for Pacific Global Health stems from years of frontline healthcare experience and a deep understanding of the systemic challenges facing health systems in the Asia-Pacific region.
+                  Dr Sathira Perera, Founder and Director of Pacific Global Health, is a primary care physician and health systems specialist whose interdisciplinary expertise in medicine, public health, health economics and policy drives his commitment to advancing equitable, evidence-based healthcare locally and globally.
                   </p>
                 </div>
               </div>
