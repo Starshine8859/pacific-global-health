@@ -39,11 +39,13 @@ export default function LeadershipPage() {
                 <div className="p-8 flex flex-col justify-center">
                   <CardHeader className="p-0 mb-6">
                     <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>
+                    <p className="text-lg text-primary font-medium">Founder and Director of Pacific Global Health</p>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
                       <Badge variant="outline">MBBS (Hons)</Badge>
                       <Badge variant="outline">Master of Community Medicine</Badge>
                       <Badge variant="outline">Master of Health Economics & Policy</Badge>
                       <Badge variant="outline">PhD Health Systems Research: Cancer Therapy (UNSW)</Badge>
+                      {/* <Badge variant="outline">Founder, Director and Academic Lead</Badge> */}
                     </div>
                     {/* <CardDescription className="text-lg text-primary font-medium">
                       Founder, Director & Academic Lead · also known as "Dr. Sathi"

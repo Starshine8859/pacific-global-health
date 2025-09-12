@@ -28,13 +28,15 @@ export default function HomePage() {
               <div className="md:col-span-2 space-y-2">
                 <h2 className="text-2xl font-bold text-foreground">Dr. Sathira Kasun Perera</h2>
                 
+                <p className="text-lg text-primary font-medium">Founder and Director of Pacific Global Health</p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">MBBS (Hons)</span>
                   <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">Master of Community Medicine</span>
                   <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">Master of Health Economics & Policy</span>
                   <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">PhD Health Systems Research: Cancer Therapy (UNSW)</span>
+                  {/* <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">Founder, Director and Academic Lead</span> */}
                 </div>
-                <p className="text-primary font-medium">Founder, Director & Academic Lead</p>
+                
                 <p className="text-muted-foreground text-pretty">
                 Dr Sathira Perera, Founder and Director of Pacific Global Health, is a primary care physician and health systems specialist whose interdisciplinary expertise in medicine, public health, health economics and policy drives his commitment to advancing equitable, evidence-based healthcare locally and globally.
                 </p>

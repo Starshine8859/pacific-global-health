@@ -150,6 +150,7 @@ export default function AdminDashboardPage() {
             <span className="inline-flex items-center rounded-md border px-2 py-0.5">Master of Community Medicine</span>
             <span className="inline-flex items-center rounded-md border px-2 py-0.5">Master of Health Economics & Policy</span>
             <span className="inline-flex items-center rounded-md border px-2 py-0.5">PhD Health Systems Research: Cancer Therapy (UNSW)</span>
+            <span className="inline-flex items-center rounded-md border px-2 py-0.5">Founder, Director and Academic Lead</span>
           </div>
         </CardContent>
       </Card>

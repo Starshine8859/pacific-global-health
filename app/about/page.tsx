@@ -195,12 +195,13 @@ export default function AboutPage() {
             </div>
             <Card className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-3 gap-8 p-8">
-                <div className="relative h-64 md:h-auto">
+                <div className="relative h-72 md:h-80 lg:h-96">
                   <Image
                     src="/IMG_9276.jpeg"
                     alt="Dr. Sathira Perera"
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-contain rounded-lg"
+                    priority
                   />
                 </div>
                 <div className="md:col-span-2 space-y-4">
@@ -212,14 +213,15 @@ export default function AboutPage() {
                       <Badge variant="outline">Master of Community Medicine</Badge>
                       <Badge variant="outline">Master of Health Economics & Policy</Badge>
                       <Badge variant="outline">PhD Health Systems Research: Cancer Therapy (UNSW)</Badge>
+                      {/* <Badge variant="outline">Founder, Director and Academic Lead</Badge> */}
                     </div>
                   </div>
                   {/* <p className="text-muted-foreground text-pretty">
                     Dr. Perera brings extensive experience in primary care, public health, and health systems development. With qualifications in medicine, community medicine, health economics & policy, and a PhD in Health Systems Research (Cancer Therapy) from UNSW, he has dedicated his career to improving healthcare access and quality across diverse communities.
                   </p> */}
-                  <p className="text-muted-foreground text-pretty">
+                  {/* <p className="text-muted-foreground text-pretty">
                   Dr Sathira Perera, Founder and Director of Pacific Global Health, is a primary care physician and health systems specialist whose interdisciplinary expertise in medicine, public health, health economics and policy drives his commitment to advancing equitable, evidence-based healthcare locally and globally.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </Card>
