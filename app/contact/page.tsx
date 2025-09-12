@@ -73,7 +73,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      details: "info@pacificglobal.org",
+      details: "info@pacificglobalhealth.org",
       description: "Send us a message anytime",
     },
     {
@@ -146,7 +146,14 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <p className="font-medium text-foreground">General Inquiries</p>
-                      <p className="text-muted-foreground">info@pacificglobal.org</p>
+                      <p className="text-muted-foreground">info@pacificglobalhealth.org</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Mail className="h-5 w-5 text-primary mt-1" />
+                    <div>
+                      <p className="font-medium text-foreground">Director Inquiries</p>
+                      <p className="text-muted-foreground">director@pacificglobalhealth.org</p>
                     </div>
                   </div>
 

@@ -138,6 +138,21 @@ export default function AdminDashboardPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Founder Qualifications */}
+      <Card className="bg-card border-border">
+        <CardHeader>
+          <CardTitle className="text-foreground">Founder Qualifications</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2 text-sm">
+            <span className="inline-flex items-center rounded-md border px-2 py-0.5">MBBS (Hons)</span>
+            <span className="inline-flex items-center rounded-md border px-2 py-0.5">Master of Community Medicine</span>
+            <span className="inline-flex items-center rounded-md border px-2 py-0.5">Master of Health Economics & Policy</span>
+            <span className="inline-flex items-center rounded-md border px-2 py-0.5">PhD Health Systems Research: Cancer Therapy (UNSW)</span>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }

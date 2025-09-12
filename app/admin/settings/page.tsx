@@ -23,7 +23,7 @@ export default function AdminSettingsPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="orgEmail">Contact Email</Label>
-              <Input id="orgEmail" type="email" placeholder="info@pacificglobal.org" />
+              <Input id="orgEmail" type="email" placeholder="info@pacificglobalhealth.org" />
             </div>
             <Button>Save</Button>
           </CardContent>

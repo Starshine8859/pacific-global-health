@@ -207,9 +207,12 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground">Dr. Sathira Perera</h3>
                     <p className="text-lg text-primary font-medium">Founder and Director of Pacific Global Health</p>
-                    <Badge variant="outline" className="mt-2">
-                      MBBS (Hons)
-                    </Badge>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <Badge variant="outline">MBBS (Hons)</Badge>
+                      <Badge variant="outline">Master of Community Medicine</Badge>
+                      <Badge variant="outline">Master of Health Economics & Policy</Badge>
+                      <Badge variant="outline">PhD Health Systems Research: Cancer Therapy (UNSW)</Badge>
+                    </div>
                   </div>
                   {/* <p className="text-muted-foreground text-pretty">
                     Dr. Perera brings extensive experience in primary care, public health, and health systems development. With qualifications in medicine, community medicine, health economics & policy, and a PhD in Health Systems Research (Cancer Therapy) from UNSW, he has dedicated his career to improving healthcare access and quality across diverse communities.

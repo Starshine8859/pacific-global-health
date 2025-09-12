@@ -38,11 +38,13 @@ export default function LeadershipPage() {
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <CardHeader className="p-0 mb-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="outline">MBBS (Hons)</Badge>
-                      {/* <Badge variant="outline">PhD</Badge> */}
-                    </div>
                     <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <Badge variant="outline">MBBS (Hons)</Badge>
+                      <Badge variant="outline">Master of Community Medicine</Badge>
+                      <Badge variant="outline">Master of Health Economics & Policy</Badge>
+                      <Badge variant="outline">PhD Health Systems Research: Cancer Therapy (UNSW)</Badge>
+                    </div>
                     {/* <CardDescription className="text-lg text-primary font-medium">
                       Founder, Director & Academic Lead · also known as "Dr. Sathi"
                     </CardDescription> */}

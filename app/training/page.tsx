@@ -107,7 +107,7 @@ export default function TrainingPage() {
 
             <div className="max-w-3xl mx-auto mb-12 text-center">
               <p className="text-muted-foreground">
-                Training enquiries: <a href="mailto:training@pacificglobal.org" className="text-primary underline">training@pacificglobal.org</a>
+                Training enquiries: <a href="mailto:training@pacificglobalhealth.org" className="text-primary underline">training@pacificglobalhealth.org</a>
               </p>
             </div>
 
