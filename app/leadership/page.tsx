@@ -38,7 +38,7 @@ export default function LeadershipPage() {
                 <div className="p-8 flex flex-col justify-center">
                   <CardHeader className="p-0 mb-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge variant="outline">MBBS (Hons)</Badge>
+                      <Badge variant="outline">MBBS</Badge>
                       {/* <Badge variant="outline">PhD</Badge> */}
                     </div>
                     <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>
