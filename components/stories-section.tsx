@@ -27,11 +27,13 @@ export function StoriesSection() {
   ]
 
   return (
-    <section className="py-14 sm:py-16 lg:py-24 bg-white">
+    <section className="py-14 sm:py-16 lg:py-24 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6 mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900 text-balance">Our Stories</h2>
-          <p className="text-base md:text-xl text-gray-600 text-pretty max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white text-balance">
+            Our Stories
+          </h2>
+          <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 text-pretty max-w-4xl mx-auto leading-relaxed">
             
           </p>
         </div>
@@ -39,7 +41,7 @@ export function StoriesSection() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {stories.map((story, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3 sm:mb-4">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden mb-3 sm:mb-4 ring-1 ring-gray-200 dark:ring-gray-700">
                 <img
                   src={story.image || "/placeholder.svg"}
                   alt={story.title}
@@ -47,11 +49,15 @@ export function StoriesSection() {
                 />
               </div>
               <div className="space-y-2">
-                <p className="text-xs sm:text-sm text-gray-500 font-medium">{story.date}</p>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium">
+                  {story.date}
+                </p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary transition-colors">
                   {story.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-primary font-medium uppercase tracking-wide">{story.category}</p>
+                <p className="text-xs sm:text-sm text-primary dark:text-primary font-medium uppercase tracking-wide">
+                  {story.category}
+                </p>
               </div>
             </div>
           ))}

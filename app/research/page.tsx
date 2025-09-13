@@ -42,31 +42,34 @@ export default function ResearchPage() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <Search className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Clinical Research</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-grey-600 ">Clinical Research</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Supporting evidence-based medical practices that improve patient care and treatment outcomes.
                 </p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <BarChart className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Public Health Research</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-grey-600">Public Health Research</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Addressing community and population health challenges, from disease prevention to policy interventions.
                 </p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <Search className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Health Systems Research</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-grey-600">Health Systems Research</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Exploring ways to strengthen efficiency, equity, and sustainability of healthcare delivery worldwide.
                 </p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <BarChart className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Translational Research</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-grey-600">Translational Research</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Bridging the gap between laboratory discoveries and real-world application for rapid impact.
                 </p>
               </div>
@@ -111,42 +114,64 @@ export default function ResearchPage() {
           </div>
         </section>
 
-        <section id="express-interest" className="py-16 bg-gray-50">
+        <section id="express-interest" className="py-16 bg-gray-50 dark:bg-gray-900" style={{ display: "none" }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Express Your Interest</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Express Your Interest</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
                 We invite prospective researchers, academic institutions, and healthcare professionals to join our global network. By working together, we can generate insights that not only advance science but also transform health systems and improve lives across the globe.
               </p>
             </div>
-            <div className="bg-white rounded-lg shadow-lg p-8">
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-8">
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="font-medium text-foreground">Full Name *</label>
-                    <input id="name" className="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Enter your full name" required />
+                    <label htmlFor="name" className="font-medium text-grey-600 dark:text-grey-400">Full Name *</label>
+                    <input
+                      id="name"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                      placeholder="Enter your full name"
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="font-medium text-foreground">Email Address *</label>
-                    <input id="email" type="email" className="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Enter your email address" required />
+                    <label htmlFor="email" className="font-medium text-grey-600 dark:text-grey-400">Email Address *</label>
+                    <input
+                      id="email"
+                      type="email"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                      placeholder="Enter your email address"
+                      required
+                    />
                   </div>
                 </div>
+
                 <div className="space-y-2">
-                  <label htmlFor="affiliation" className="font-medium text-foreground">Affiliation / Institution</label>
-                  <input id="affiliation" className="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Enter your affiliation or institution" />
+                  <label htmlFor="affiliation" className="font-medium text-grey-600 dark:text-grey-400">Affiliation / Institution</label>
+                  <input
+                    id="affiliation"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                    placeholder="Enter your affiliation or institution"
+                  />
                 </div>
+
                 <div className="space-y-2">
-                  <label htmlFor="interest" className="font-medium text-foreground">Research Interest *</label>
+                  <label htmlFor="interest" className="font-medium text-grey-600 dark:text-grey-400">Research Interest *</label>
                   <textarea
                     id="interest"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-vertical"
                     placeholder="Describe your research interests, expertise, or the type of collaboration you seek..."
                     rows={5}
                     required
                   />
                 </div>
+
                 <div className="text-center">
-                  <button type="submit" className="bg-primary text-white font-semibold px-8 py-3 rounded-lg shadow hover:bg-primary/90 transition">
+                  <button
+                    type="submit"
+                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                  >
                     Submit Expression of Interest
                   </button>
                 </div>

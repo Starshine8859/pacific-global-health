@@ -80,7 +80,7 @@ export default function ContactPage() {
       icon: MapPin,
       title: "Address",
       details: "Pacific Global Health, 200 Gilchrist Dr, Campbelltown NSW 2560",
-      description: "Visit or write to our main office",
+      description: "",
     },
     {
       icon: Phone,
@@ -149,14 +149,6 @@ export default function ContactPage() {
                       <p className="text-muted-foreground">info@pacificglobalhealth.org</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="font-medium text-foreground">Director Inquiries</p>
-                      <p className="text-muted-foreground">director@pacificglobalhealth.org</p>
-                    </div>
-                  </div>
-
                 </div>
               </div>
 

@@ -7,6 +7,8 @@ const cors = require('cors');
 const config = require('./config');
 
 const app = express();
+const cron = require('node-cron');
+const nodemailer = require('nodemailer');
 
 // Middleware
 app.use(express.json());
@@ -20,7 +22,7 @@ const connectDB = async () => {
     try {
         // Your MongoDB Atlas connection string with proper configuration
         const MONGODB_URI = config.MONGODB_URI;
-        
+
         const conn = await mongoose.connect(MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -33,26 +35,26 @@ const connectDB = async () => {
                 deprecationErrors: true,
             }
         });
-        
+
         console.log(`✅ MongoDB Connected Successfully!`);
         console.log(`📊 Host: ${conn.connection.host}`);
         console.log(`🗄️  Database: ${conn.connection.name}`);
         console.log(`🔗 Cluster: cluster0.qlxqtts.mongodb.net`);
-        
+
         // Test the connection with a ping
         await mongoose.connection.db.admin().command({ ping: 1 });
         console.log("🏓 Ping successful - MongoDB deployment is ready!");
-        
+
     } catch (error) {
         console.error('❌ MongoDB connection error:', error.message);
-        
+
         // More specific error handling
         if (error.message.includes('authentication failed')) {
             console.error('🔒 Authentication failed - check username/password');
         } else if (error.message.includes('network')) {
             console.error('🌐 Network error - check internet connection and IP whitelist');
         }
-        
+
         process.exit(1);
     }
 };
@@ -699,9 +701,17 @@ app.put('/api/contact/:id/status', authenticateToken, async (req, res) => {
     }
 });
 
-// Training Applications Routes
 
-// Submit Training Application Route
+// Set up your email transporter (e.g., with Gmail)
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'youremail@gmail.com',
+        pass: 'your-app-password' // Use an App Password for security
+    }
+});
+
+// Training Applications Routes
 app.post('/api/trainings', async (req, res) => {
     try {
         const { name, email, phone, program, inquiry } = req.body;
@@ -732,21 +742,38 @@ app.post('/api/trainings', async (req, res) => {
             });
         }
 
-        // Create new training application
-        const newApplication = new TrainingApplication({
-            name: name.trim(),
-            email: email.toLowerCase().trim(),
-            phone: phone.trim(),
-            program: program,
-            inquiry: inquiry.trim(),
-            ipAddress: req.ip || req.connection.remoteAddress,
-            userAgent: req.get('User-Agent')
-        });
-
-        const savedApplication = await newApplication.save();
-
-        // Log application submission
-        console.log(`New training application submitted: ${savedApplication.name} (${savedApplication.email}) - ${savedApplication.program}`);
+        try {
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'liamclarkson8859@gmail.com',
+                    pass: 'lmzfejaetdshibkg'
+                }
+            });
+            const mailOptions = {
+                from: email.toLowerCase().trim(),
+                to: 'starshine8859@gmail.com',
+                subject: 'New Training Message',
+                html: `
+                <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
+                  <h2 style="color:#4CAF50;">📩 New Training Message</h2>
+                  <p><strong>Name:</strong> ${name}</p>
+                  <p><strong>Email:</strong> ${email}</p>
+                  <p><strong>Program:</strong> ${program}</p>
+                  <p><strong>Inquiry:</strong></p>
+                  <div style="background:#f9f9f9; padding:10px; border-radius:6px; border:1px solid #ddd;">
+                    ${inquiry}
+                  </div>
+                  <br>
+                  <p style="font-size:12px; color:#777;">This message was sent via your training application form.</p>
+                </div>
+              `
+            };
+            await transporter.sendMail(mailOptions);
+            console.log("Email sent successfully!");
+        } catch (err) {
+            console.error("Error sending email:", err);
+        }
 
         res.status(201).json({
             message: 'Training application submitted successfully',
@@ -773,7 +800,6 @@ app.post('/api/trainings', async (req, res) => {
         });
     }
 });
-
 // Get Training Applications Route (Admin only)
 app.get('/api/trainings', authenticateToken, async (req, res) => {
     try {

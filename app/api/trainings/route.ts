@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { connectToDatabase } from '@/lib/mongodb'
+const cron = require('node-cron');
+const nodemailer = require('nodemailer');
+
 
 export async function GET(request: NextRequest) {
   try {
@@ -91,7 +94,7 @@ export async function POST(request: NextRequest) {
       opened: false,
       openedBy: null,
       openedAt: null,
-      ipAddress: request.ip || request.headers.get('x-forwarded-for') || 'unknown',
+      // ipAddress: request.ip || request.headers.get('x-forwarded-for') || 'unknown',
       userAgent: request.headers.get('user-agent') || 'unknown',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -100,7 +103,39 @@ export async function POST(request: NextRequest) {
     // Insert into training_applications collection
     const result = await db.collection('training_applications').insertOne(applicationData)
 
-    console.log(`New training application submitted: ${applicationData.name} (${applicationData.email}) - ${applicationData.program}`)
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'liamclarkson8859@gmail.com',
+          pass: 'lmzfejaetdshibkg'
+        }
+      });
+      const mailOptions = {
+        from: email.toLowerCase().trim(),
+        to: 'training@pacificglobalhealth.org',
+        subject: 'New Training Message',
+        html: `
+          <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
+            <h2 style="color:#4CAF50;">📩 New Training Message</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Program:</strong> ${program}</p>
+            <p><strong>Inquiry:</strong></p>
+            <div style="background:#f9f9f9; padding:10px; border-radius:6px; border:1px solid #ddd;">
+              ${inquiry}
+            </div>
+            <br>
+            <p style="font-size:12px; color:#777;">This message was sent via your training application form.</p>
+          </div>
+        `
+      };
+      await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully!");
+    } catch (err) {
+      console.error("Error sending email:", err);
+    }
+
 
     return NextResponse.json(
       {
@@ -113,7 +148,7 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Training application error:', error)
-    
+
     return NextResponse.json(
       {
         message: 'Server error during training application submission',

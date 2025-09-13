@@ -68,23 +68,24 @@ export default function TrainingPage() {
       setIsSubmitting(false)
     }
   }
+  
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navigation />
       <main>
-        <section className="bg-gradient-to-r from-primary/10 to-primary/5 py-16">
+        <section className="bg-black from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <Badge variant="secondary" className="mb-4">
+              <Badge variant="secondary" className="mb-4 bg-white/90 dark:bg-gray-800/90 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
                 Training & Workforce Development
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 text-balance">
                 Building Global Healthcare Capacity
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty mb-6">
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-pretty mb-6">
                 At Pacific Global Health, we believe that knowledge sharing and cross-border collaboration are key to building stronger, more resilient health systems. Our dedicated platform connects healthcare workers and students worldwide through internships, scholarships, and elective opportunities.
               </p>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-pretty">
                 This initiative fosters global learning, cultural exchange, and professional growth. By providing access to structured placements across diverse healthcare settings, we empower participants to experience firsthand the challenges and innovations shaping health systems around the world. These opportunities build clinical and research skills, promote empathy, adaptability, and leadership—qualities essential for the next generation of health professionals.
               </p>
               <div className="mt-8">
@@ -96,47 +97,47 @@ export default function TrainingPage() {
           </div>
         </section>
 
-        <section className="py-16">
+        <section className="py-16 bg-white dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Our Training Programs</h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Training Programs</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                 Connecting healthcare professionals globally through structured learning opportunities
               </p>
             </div>
 
             <div className="max-w-3xl mx-auto mb-12 text-center">
-              <p className="text-muted-foreground">
-                Training enquiries: <a href="mailto:training@pacificglobalhealth.org" className="text-primary underline">training@pacificglobalhealth.org</a>
+              <p className="text-gray-600 dark:text-gray-300">
+                Training enquiries: <a href="mailto:training@pacificglobalhealth.org" className="text-primary hover:text-primary/80 underline">training@pacificglobalhealth.org</a>
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <GraduationCap className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Internships</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Internships</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Hands-on experience in healthcare settings across the Asia-Pacific region
                 </p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Scholarships</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Scholarships</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Financial support for healthcare education and professional development
                 </p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <BookOpen className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Electives</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Electives</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Specialized training modules in various healthcare disciplines
                 </p>
               </div>
-              <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+              <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
                 <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-lg font-semibold mb-2">Mentorship</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Mentorship</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
                   Guidance from experienced healthcare professionals and researchers
                 </p>
               </div>
@@ -152,8 +153,8 @@ export default function TrainingPage() {
                 />
               </div>
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">Professional Development Excellence</h2>
-                <p className="text-lg text-muted-foreground mb-6 text-pretty">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Professional Development Excellence</h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 text-pretty">
                   Our comprehensive training approach focuses on building local capacity and expertise to ensure
                   sustainable healthcare improvements across diverse healthcare settings.
                 </p>
@@ -161,8 +162,8 @@ export default function TrainingPage() {
                   <div className="flex items-start gap-3">
                     <GraduationCap className="h-6 w-6 text-primary mt-1" />
                     <div>
-                      <h3 className="font-semibold text-foreground">Skills Development</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="font-semibold text-gray-900 dark:text-white">Skills Development</h3>
+                      <p className="text-gray-600 dark:text-gray-300">
                         Enhancing clinical and administrative capabilities through structured programs
                       </p>
                     </div>
@@ -170,8 +171,8 @@ export default function TrainingPage() {
                   <div className="flex items-start gap-3">
                     <BookOpen className="h-6 w-6 text-primary mt-1" />
                     <div>
-                      <h3 className="font-semibold text-foreground">Knowledge Transfer</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="font-semibold text-gray-900 dark:text-white">Knowledge Transfer</h3>
+                      <p className="text-gray-600 dark:text-gray-300">
                         Sharing best practices and innovations across healthcare systems
                       </p>
                     </div>
@@ -182,19 +183,19 @@ export default function TrainingPage() {
           </div>
         </section>
 
-        <section id="express-interest" className="py-16 bg-gray-50">
+        <section id="express-interest" className="py-16 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Express Your Interest</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Express Your Interest</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
                 We invite healthcare workers, students, and institutions to join us in shaping this exciting initiative. If you are passionate about learning, teaching, or contributing to global health, please register your Expression of Interest below.
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-8">
               {/* Success Message */}
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md flex items-center gap-2 text-green-800">
+                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md flex items-center gap-2 text-green-800 dark:text-green-300">
                   <CheckCircle className="h-5 w-5" />
                   <span>Application submitted successfully! We'll review your application and get back to you within 5-7 business days.</span>
                 </div>
@@ -202,7 +203,7 @@ export default function TrainingPage() {
 
               {/* Error Message */}
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md flex items-center gap-2 text-red-800">
+                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md flex items-center gap-2 text-red-800 dark:text-red-300">
                   <AlertCircle className="h-5 w-5" />
                   <span>{errorMessage}</span>
                 </div>
@@ -211,7 +212,7 @@ export default function TrainingPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
+                    <Label htmlFor="name" className="text-gray-900 dark:text-white">Full Name *</Label>
                     <Input 
                       id="name" 
                       name="name"
@@ -220,10 +221,11 @@ export default function TrainingPage() {
                       placeholder="Enter your full name" 
                       required
                       disabled={isSubmitting}
+                      className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
+                    <Label htmlFor="email" className="text-gray-900 dark:text-white">Email Address *</Label>
                     <Input 
                       id="email" 
                       name="email"
@@ -233,13 +235,14 @@ export default function TrainingPage() {
                       placeholder="Enter your email address" 
                       required
                       disabled={isSubmitting}
+                      className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Telephone Number *</Label>
+                    <Label htmlFor="phone" className="text-gray-900 dark:text-white">Telephone Number *</Label>
                     <Input 
                       id="phone" 
                       name="phone"
@@ -249,16 +252,17 @@ export default function TrainingPage() {
                       placeholder="Enter your phone number" 
                       required
                       disabled={isSubmitting}
+                      className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="program">Program of Interest *</Label>
+                    <Label htmlFor="program" className="text-gray-900 dark:text-white">Program of Interest *</Label>
                     <select
                       id="program"
                       name="program"
                       value={formData.program}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
                       required
                       disabled={isSubmitting}
                     >
@@ -272,7 +276,7 @@ export default function TrainingPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="inquiry">Your Inquiry *</Label>
+                  <Label htmlFor="inquiry" className="text-gray-900 dark:text-white">Your Inquiry *</Label>
                   <Textarea
                     id="inquiry"
                     name="inquiry"
@@ -282,6 +286,7 @@ export default function TrainingPage() {
                     rows={6}
                     required
                     disabled={isSubmitting}
+                    className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                   />
                 </div>
 
@@ -298,7 +303,7 @@ export default function TrainingPage() {
                         Submitting...
                       </>
                     ) : (
-                      'Submit Application'
+                      'Submit'
                     )}
                   </Button>
                 </div>

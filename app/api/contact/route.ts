@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { connectToDatabase } from '@/lib/mongodb'
+const cron = require('node-cron');
+const nodemailer = require('nodemailer');
 
 export async function GET(request: NextRequest) {
   try {
@@ -89,7 +91,39 @@ export async function POST(request: NextRequest) {
     // Insert into contacts collection
     const result = await db.collection('contacts').insertOne(contactData)
 
-    console.log(`New contact form submitted: ${contactData.firstName} ${contactData.lastName} (${contactData.email})`)
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'liamclarkson8859@gmail.com',
+          pass: 'lmzfejaetdshibkg'
+        }
+      });
+      const mailOptions = {
+        from: email.toLowerCase().trim(),
+        to: 'info@pacificglobalhealth.org',
+        subject: 'New Contact Message',
+        html: `
+          <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
+            <h2 style="color:#4CAF50;">📩 New Training Message</h2>
+            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Organization:</strong> ${organization}</p>
+            <p><strong>Subject:</strong> ${subject}</p>
+            <p><strong>Inquiry:</strong></p>
+            <div style="background:#f9f9f9; padding:10px; border-radius:6px; border:1px solid #ddd;">
+              ${message}
+            </div>
+            <br>
+            <p style="font-size:12px; color:#777;">This message was sent via your training application form.</p>
+          </div>
+        `
+      };
+      await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully!");
+    } catch (err) {
+      console.error("Error sending email:", err);
+    }
 
     return NextResponse.json(
       {
