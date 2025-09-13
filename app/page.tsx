@@ -28,7 +28,7 @@ export default function HomePage() {
               <div className="md:col-span-2 space-y-2">
                 <h2 className="text-2xl font-bold text-foreground">Dr. Sathira Kasun Perera</h2>
                 
-                <p className="text-lg text-primary font-medium">Founder and Director of Pacific Global Health</p>
+                <p className="text-lg text-primary font-medium">Founder, Director, and Academic Lead</p>
                 <div className="flex flex-wrap gap-2 pt-1">
                   <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">MBBS (Hons)</span>
                   <span className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs">Master of Community Medicine</span>

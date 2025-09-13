@@ -7,7 +7,7 @@ export function StoriesSection() {
       category: "",
     },
     {
-      image: "/healthcare-partnership-meeting.png",
+      image: "/healthcare-worker-with-patient-in-asia-pacific-reg.png",
       date: "",
       title: "Health systems research, development and training.",
       category: "",
@@ -19,7 +19,7 @@ export function StoriesSection() {
       category: "",
     },
     {
-      image: "/health-systems-research.png",
+      image: "/children-receiving-healthcare-in-asia-pacific.png",
       date: "",
       title: "Facilitating Global Health Research and Innovation.",
       category: "",

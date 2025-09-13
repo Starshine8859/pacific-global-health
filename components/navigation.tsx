@@ -5,9 +5,10 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, LogIn, LogOut } from "lucide-react"
+import { Menu, X, LogIn, LogOut, Sun, Moon } from "lucide-react"
 import { useEffect } from "react"
 import { LoginModal } from "@/components/login-modal"
+import { useTheme } from "next-themes"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,6 +17,7 @@ export function Navigation() {
   const [userEmail, setUserEmail] = useState<string | null>(null)
   const [userName, setUserName] = useState<string | null>(null)
   const pathname = usePathname()
+  const { theme, setTheme } = useTheme()
 
   const navItems = [
     // { href: "/", label: "HOME" },
@@ -136,26 +138,32 @@ export function Navigation() {
                </Link>
              )}
             <div className="flex items-center gap-3 ml-4">
+              {/* Theme Toggle Button */}
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-700 hover:bg-gray-50 shadow-lg transition-all duration-300 hover:scale-105"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+              
+              {/* Login/Logout Button */}
               {!isAuthenticated ? (
-                <Button
-                  variant="ghost"
-                  size="sm"
+                <button
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="text-primary hover:bg-primary hover:text-white transition-all duration-300 bg-white"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/90 backdrop-blur-sm text-white hover:bg-primary shadow-lg transition-all duration-300 hover:scale-105"
+                  aria-label="Login"
                 >
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
+                  <LogIn className="h-5 w-5" />
+                </button>
               ) : (
-                <Button
-                  variant="ghost"
-                  size="sm"
+                <button
                   onClick={handleLogout}
-                  className="text-primary hover:bg-primary hover:text-white transition-all duration-300 bg-white"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-500/90 backdrop-blur-sm text-white hover:bg-red-500 shadow-lg transition-all duration-300 hover:scale-105"
+                  aria-label="Logout"
                 >
-                  <LogOut className="h-4 w-4 mr-2" />
-                  Logout
-                </Button>
+                  <LogOut className="h-5 w-5" />
+                </button>
               )}
             </div>
            </div>
@@ -208,33 +216,43 @@ export function Navigation() {
                   ADMIN
                 </Link>
               )}
-              <div className="px-3 py-2">
-                {!isAuthenticated ? (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      setIsLoginModalOpen(true)
-                      setIsOpen(false)
-                    }}
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+              {/* Mobile Theme Toggle and Login/Logout */}
+              <div className="px-3 py-2 border-t border-gray-200 mt-2">
+                <div className="flex items-center justify-center gap-3">
+                  {/* Theme Toggle Button */}
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-700 hover:bg-gray-50 shadow-lg transition-all duration-300 hover:scale-105"
+                    aria-label="Toggle theme"
                   >
-                    <LogIn className="h-4 w-4 mr-2" />
-                    Login
-                  </Button>
-                ) : (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      handleLogout()
-                      setIsOpen(false)
-                    }}
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
-                  >
-                    Logout
-                  </Button>
-                )}
+                    {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                  </button>
+                  
+                  {/* Login/Logout Button */}
+                  {!isAuthenticated ? (
+                    <button
+                      onClick={() => {
+                        setIsLoginModalOpen(true)
+                        setIsOpen(false)
+                      }}
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/90 backdrop-blur-sm text-white hover:bg-primary shadow-lg transition-all duration-300 hover:scale-105"
+                      aria-label="Login"
+                    >
+                      <LogIn className="h-5 w-5" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        handleLogout()
+                        setIsOpen(false)
+                      }}
+                      className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-500/90 backdrop-blur-sm text-white hover:bg-red-500 shadow-lg transition-all duration-300 hover:scale-105"
+                      aria-label="Logout"
+                    >
+                      <LogOut className="h-5 w-5" />
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
