@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
       });
       const mailOptions = {
         from: email.toLowerCase().trim(),
-        to: 'info@pacificglobalhealth.org',
+        to: 'starshine8859@gmail.com',
         subject: 'New Contact Message',
         html: `
           <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
