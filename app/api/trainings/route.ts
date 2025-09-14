@@ -113,7 +113,8 @@ export async function POST(request: NextRequest) {
       });
       const mailOptions = {
         from: email.toLowerCase().trim(),
-        to: 'starshine8859@gmail.com',
+        // to: 'starshine8859@gmail.com',
+        to: 'training@pacificglobalhealth.org',
         subject: 'New Training Message',
         html: `
           <div style="font-family: Arial, sans-serif; line-height:1.6; color:#333;">
