@@ -208,19 +208,26 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground">Dr. Sathira Perera</h3>
                     <p className="text-lg text-primary font-medium">Founder, Director, and Academic Lead</p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      <Badge variant="outline">MBBS (Hons)</Badge>
-                      <Badge variant="outline">Master of Community Medicine</Badge>
-                      <Badge variant="outline">Master of Health Economics & Policy</Badge>
-                      <Badge variant="outline">PhD Health Systems Research: Cancer Therapy (UNSW)</Badge>
-                      {/* <Badge variant="outline">Founder, Director and Academic Lead</Badge> */}
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        MBBS (Hons)
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                        Master of Community Medicine
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                        Master of Health Economics & Policy
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-teal-100 text-teal-800">
+                        PhD Health Systems Research: Cancer Therapy (UNSW)
+                      </span>
                     </div>
                   </div>
                   {/* <p className="text-muted-foreground text-pretty">
                     Dr. Perera brings extensive experience in primary care, public health, and health systems development. With qualifications in medicine, community medicine, health economics & policy, and a PhD in Health Systems Research (Cancer Therapy) from UNSW, he has dedicated his career to improving healthcare access and quality across diverse communities.
                   </p> */}
                   <p className="text-muted-foreground text-pretty">
-                  Dr Sathira Perera, Founder and Director of Pacific Global Health, is a primary care physician and health systems specialist whose interdisciplinary expertise in medicine, public health, health economics and policy drives his commitment to advancing equitable, evidence-based healthcare locally and globally.
+                    Dr Sathira Perera, Founder and Director of Pacific Global Health, is a primary care physician and health systems specialist whose interdisciplinary expertise in medicine, public health, health economics and policy drives his commitment to advancing equitable, evidence-based healthcare locally and globally.
                   </p>
                 </div>
               </div>

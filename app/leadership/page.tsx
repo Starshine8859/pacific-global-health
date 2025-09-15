@@ -40,12 +40,19 @@ export default function LeadershipPage() {
                   <CardHeader className="p-0 mb-6">
                     <CardTitle className="text-3xl">Dr. Sathira Kasun Perera</CardTitle>
                     <p className="text-lg text-primary font-medium">Founder, Director, and Academic Lead</p>
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <Badge variant="outline">MBBS (Hons)</Badge>
-                      <Badge variant="outline">Master of Community Medicine</Badge>
-                      <Badge variant="outline">Master of Health Economics & Policy</Badge>
-                      <Badge variant="outline">PhD Health Systems Research: Cancer Therapy (UNSW)</Badge>
-                      {/* <Badge variant="outline">Founder, Director and Academic Lead</Badge> */}
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                        MBBS (Hons)
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
+                        Master of Community Medicine
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                        Master of Health Economics & Policy
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-teal-100 text-teal-800">
+                        PhD Health Systems Research: Cancer Therapy (UNSW)
+                      </span>
                     </div>
                     {/* <CardDescription className="text-lg text-primary font-medium">
                       Founder, Director & Academic Lead · also known as "Dr. Sathi"
