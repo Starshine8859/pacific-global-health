@@ -7,27 +7,27 @@ export function ImageSlideshow() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const slides = [
     {
-      image: "/images/primarycare.jpg",
+      image: "/images/primarycare.png",
       title: "Primary Care Excellence",
       description: "Delivering accessible healthcare across the Pacific",
     },
     {
-      image: "/images/training.jpg",
+      image: "/images/training.png",
       title: "Training & Development",
       description: "Building healthcare capacity through education",
     },
     {
-      image: "/images/homepage-ourstories-healthsystemsdevelopment.jpg",
+      image: "/images/homepage-ourstories-healthsystemsdevelopment.png",
       title: "Community Health",
       description: "Improving health outcomes for all ages",
     },
     {
-      image: "/images/partnership.jpg",
+      image: "/images/partnership.png",
       title: "Global Partnerships",
       description: "Collaborating for sustainable health systems",
     },
     {
-      image: "/images/homepage-ourstories-globalhealthinnovation.jpg",
+      image: "/images/homepage-ourstories-globalhealthinnovation.png",
       title: "Research & Innovation",
       description: "Evidence-based healthcare solutions",
     },

@@ -104,7 +104,7 @@ export default function ResearchPage() {
               </div>
               <div className="relative h-96">
                 <Image
-                  src="/images/homepage-underbecomearegularpartner.jpg"
+                  src="/images/homepage-underbecomearegularpartner.png"
                   alt="Health research"
                   fill
                   className="object-cover rounded-lg"

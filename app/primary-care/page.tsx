@@ -72,7 +72,7 @@ export default function PrimaryCarePage() {
               <div className="flex-1 hidden md:block">
                 <div className="relative h-80 w-full rounded-lg overflow-hidden shadow-lg">
                   <Image
-                    src="/images/homepage-ourstories-healthsystemsdevelopment.jpg"
+                    src="/images/homepage-ourstories-healthsystemsdevelopment.png"
                     alt="Primary care delivery"
                     fill
                     className="object-cover"
@@ -107,7 +107,7 @@ export default function PrimaryCarePage() {
               </div>
               <div className="relative h-96">
                 <Image
-                  src="/images/primarycare.jpg"
+                  src="/images/primarycare.png"
                   alt="Primary care delivery"
                   fill
                   className="object-cover rounded-lg"

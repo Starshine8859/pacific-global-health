@@ -61,7 +61,7 @@ export function LeadershipSection() {
           >
             <div className="aspect-[4/3] rounded-lg overflow-hidden group cursor-pointer">
               <img
-                src="/images/partnership.jpg"
+                src="/images/partnership.png"
                 alt="Healthcare partnership"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />

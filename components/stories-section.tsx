@@ -1,25 +1,25 @@
 export function StoriesSection() {
   const stories = [
     {
-      image: "/images/ourstories1-primarycareenhancement.jpg", 
+      image: "/images/ourstories1-primarycareenhancement.png", 
       date: "",
       title: "Primary Care Services enhancement across Asia Pacific region",
       category: "",
     },
     {
-      image: "/images/homepage-ourstories-healthsystemsdevelopment.jpg",
+      image: "/images/homepage-ourstories-healthsystemsdevelopment.png",
       date: "",
       title: "Health systems research, development and training.",
       category: "",
     },
     {
-      image: "/images/our_stories_homepage.jpg",
+      image: "/images/our_stories_homepage.png",
       date: "",
       title: "Health Workforce Management Intervention",
       category: "",
     },
     {
-      image: "/images/homepage-ourstories-globalhealthinnovation.jpg",
+      image: "/images/homepage-ourstories-globalhealthinnovation.png",
       date: "",
       title: "Facilitating Global Health Research and Innovation.",
       category: "",
