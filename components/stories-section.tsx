@@ -1,7 +1,7 @@
 export function StoriesSection() {
   const stories = [
     {
-      image: "/images/homepage-ourstories-globalhealthinnovation.jpg",
+      image: "/images/ourstories1-primarycareenhancement.jpg", 
       date: "",
       title: "Primary Care Services enhancement across Asia Pacific region",
       category: "",
@@ -19,7 +19,7 @@ export function StoriesSection() {
       category: "",
     },
     {
-      image: "/images/ourstories1-primarycareenhancement.jpg",
+      image: "/images/homepage-ourstories-globalhealthinnovation.jpg",
       date: "",
       title: "Facilitating Global Health Research and Innovation.",
       category: "",
