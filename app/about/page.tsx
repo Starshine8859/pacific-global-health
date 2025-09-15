@@ -197,7 +197,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-3 gap-8 p-8">
                 <div className="relative h-72 md:h-80 lg:h-96">
                   <Image
-                    src="/images/IMG_9322.jpeg"
+                    src="/images/IMG_9322.png"
                     alt="Dr. Sathira Perera"
                     fill
                     className="object-contain rounded-lg"

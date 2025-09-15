@@ -27,7 +27,7 @@ export default function HomePage() {
                       <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
                       <div className="relative w-[220px] rounded-xl overflow-hidden shadow-lg flex justify-center items-center">
                         <img
-                          src="/images/IMG_9322.jpeg"
+                          src="/images/IMG_9322.png"
                           alt="Dr. Sathira Kasun Perera"
                           className="w-full h-auto object-cover object-center select-none transition-transform duration-300 group-hover:scale-105"
                         />
