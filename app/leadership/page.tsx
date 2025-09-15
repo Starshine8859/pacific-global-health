@@ -65,36 +65,6 @@ As an academic leader, Dr. Perera brings a unique blend of clinical insight, pub
                 </div>
               </div>
             </Card>
-
-            {/* <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <BookOpen className="h-5 w-5 text-primary" />
-                    <CardTitle className="text-xl">Vision & Approach</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-pretty leading-relaxed">
-                    Dr. Perera’s leadership philosophy centres on collaborative, evidence-based approaches to health systems strengthening. He believes in empowering local healthcare professionals and institutions while fostering international partnerships that drive sustainable improvements in health outcomes.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Users className="h-5 w-5 text-primary" />
-                    <CardTitle className="text-xl">Leadership Impact</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-pretty leading-relaxed">
-                    Under Dr. Perera’s leadership, Pacific Global Health has established itself as a trusted partner in health systems development, training, and research across the Asia-Pacific region, with a focus on building local capacity and sustainable healthcare solutions.
-                  </p>
-                </CardContent>
-              </Card>
-            </div> */}
           </div>
         </section>
       </main>
