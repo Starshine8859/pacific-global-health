@@ -73,7 +73,7 @@ export default function TrainingPage() {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <Navigation />
       <main>
-        <section className="bg-black from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 py-16">
+        <section className="bg-gradient-to-r from-primary/10 to-primary/5 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <Badge variant="secondary" className="mb-4 bg-white/90 dark:bg-gray-800/90 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700">
@@ -82,10 +82,10 @@ export default function TrainingPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 text-balance">
                 Building Global Healthcare Capacity
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-pretty mb-6">
+              <p className="text-xl text-gray-900 dark:text-gray-300 max-w-3xl mx-auto text-pretty mb-6">
                 At Pacific Global Health, we believe that knowledge sharing and cross-border collaboration are key to building stronger, more resilient health systems. Our dedicated platform connects healthcare workers and students worldwide through internships, scholarships, and elective opportunities.
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-pretty">
+              <p className="text-lg text-gray-900 dark:text-gray-300 max-w-3xl mx-auto text-pretty">
                 This initiative fosters global learning, cultural exchange, and professional growth. By providing access to structured placements across diverse healthcare settings, we empower participants to experience firsthand the challenges and innovations shaping health systems around the world. These opportunities build clinical and research skills, promote empathy, adaptability, and leadership—qualities essential for the next generation of health professionals.
               </p>
               <div className="mt-8">
