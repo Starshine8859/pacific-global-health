@@ -86,9 +86,11 @@ export function HeroSection() {
                   className="w-full h-full object-contain bg-black"
                 >
                   <source src="/mainvideo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
                 </video>
+
               )}
-              
+
             </div>
           </div>
         </div>
