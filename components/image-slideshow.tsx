@@ -7,27 +7,27 @@ export function ImageSlideshow() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const slides = [
     {
-      image: "/healthcare-worker-with-patient-in-asia-pacific-reg.png",
+      image: "/images/primarycare.jpg",
       title: "Primary Care Excellence",
       description: "Delivering accessible healthcare across the Pacific",
     },
     {
-      image: "/healthcare-training-in-pacific-islands.png",
+      image: "/images/training.jpg",
       title: "Training & Development",
       description: "Building healthcare capacity through education",
     },
     {
-      image: "/children-receiving-healthcare-in-asia-pacific.png",
+      image: "/images/homepage-ourstories-healthsystemsdevelopment.jpg",
       title: "Community Health",
       description: "Improving health outcomes for all ages",
     },
     {
-      image: "/healthcare-partnership-meeting.png",
+      image: "/images/partnership.jpg",
       title: "Global Partnerships",
       description: "Collaborating for sustainable health systems",
     },
     {
-      image: "/health-systems-research.png",
+      image: "/images/homepage-ourstories-globalhealthinnovation.jpg",
       title: "Research & Innovation",
       description: "Evidence-based healthcare solutions",
     },

@@ -96,7 +96,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-96">
               <Image
-                src="/healthcare-worker-with-patient-in-asia-pacific-reg.png"
+                src="/images/aboutus.jpg"
                 alt="Healthcare mission"
                 fill
                 className="object-cover rounded-lg"
@@ -197,7 +197,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-3 gap-8 p-8">
                 <div className="relative h-72 md:h-80 lg:h-96">
                   <Image
-                    src="/IMG_9276.jpeg"
+                    src="/images/IMG_9322.jpeg"
                     alt="Dr. Sathira Perera"
                     fill
                     className="object-contain rounded-lg"

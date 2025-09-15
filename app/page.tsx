@@ -20,7 +20,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8 items-center bg-card border border-border rounded-xl p-6">
               <div className="relative h-40 w-40 mx-auto rounded-full overflow-hidden md:mx-0 ring-2 ring-primary/30 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                 <img
-                  src="/images/dr-sathira-perera.jpg"
+                  src="/images/images/IMG_9322.jpeg"
                   alt="Dr. Sathira Kasun Perera"
                   className="w-full h-full object-cover select-none"
                 />

@@ -1,25 +1,25 @@
 export function StoriesSection() {
   const stories = [
     {
-      image: "/healthcare-training-in-pacific-islands.png",
+      image: "/images/homepage-ourstories-globalhealthinnovation.jpg",
       date: "",
       title: "Primary Care Services enhancement across Asia Pacific region",
       category: "",
     },
     {
-      image: "/healthcare-worker-with-patient-in-asia-pacific-reg.png",
+      image: "/images/homepage-ourstories-healthsystemsdevelopment.jpg",
       date: "",
       title: "Health systems research, development and training.",
       category: "",
     },
     {
-      image: "/healthcare-partnership-meeting.png",
+      image: "/images/our_stories_homepage.jpg",
       date: "",
       title: "Health Workforce Management Intervention",
       category: "",
     },
     {
-      image: "/children-receiving-healthcare-in-asia-pacific.png",
+      image: "/images/ourstories1-primarycareenhancement.jpg",
       date: "",
       title: "Facilitating Global Health Research and Innovation.",
       category: "",

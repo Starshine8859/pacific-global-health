@@ -146,7 +146,7 @@ export default function TrainingPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96">
                 <Image
-                  src="/healthcare-training-in-pacific-islands.png"
+                  src="/images/training.jpg"
                   alt="Healthcare training in Pacific Islands"
                   fill
                   className="object-cover rounded-lg"

@@ -45,7 +45,7 @@ export default function PartnershipsPage() {
               <div className="flex-1 hidden md:block">
                 <div className="relative h-80 w-full rounded-lg overflow-hidden shadow-lg">
                   <Image
-                    src="/healthcare-partnership-meeting.png"
+                    src="/images/partnership.jpg"
                     alt="Partnership meeting"
                     fill
                     className="object-cover"

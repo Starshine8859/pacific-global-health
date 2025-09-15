@@ -43,7 +43,7 @@ export function LeadershipSection() {
               to quality care, won't go without essential services or miss out on life-saving interventions.
             </p>
 
-            <div className="pt-4">
+            {/* <div className="pt-4">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg group"
@@ -51,7 +51,7 @@ export function LeadershipSection() {
                 PARTNER NOW
                 <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Button>
-            </div>
+            </div> */}
           </div>
 
           <div
@@ -61,7 +61,7 @@ export function LeadershipSection() {
           >
             <div className="aspect-[4/3] rounded-lg overflow-hidden group cursor-pointer">
               <img
-                src="/healthcare-worker-with-patient-in-asia-pacific-reg.png"
+                src="/images/partnership.jpg"
                 alt="Healthcare partnership"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />

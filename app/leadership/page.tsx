@@ -29,7 +29,7 @@ export default function LeadershipPage() {
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="relative h-80 sm:h-96 lg:h-full bg-black/5">
                   <Image
-                    src="/images/dr-sathira-perera.jpg"
+                    src="/images/IMG_9322.jpeg"
                     alt="Dr. Sathira Kasun Perera (Dr. Sathi)"
                     fill
                     className="object-contain object-center"
