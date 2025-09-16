@@ -5,11 +5,18 @@ import { ServicesOverview } from "@/components/services-overview"
 import { LeadershipSection } from "@/components/leadership-section"
 import { StoriesSection } from "@/components/stories-section"
 import { Footer } from "@/components/footer"
+import Head from 'next/head';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <Head>
+        <title>Pacific Global Health – Improving Health Worldwide</title>
+        <meta name="description" content="Pacific Global Health provides solutions and insights for public health initiatives worldwide." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://pacificglobalhealth.org/" />
+      </Head>
       <main>
         <HeroSection />
         <ImageSlideshow />
