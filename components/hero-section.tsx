@@ -75,18 +75,11 @@ export function HeroSection() {
           {/* Video Section */}
           <div className="flex-shrink-0 order-1 lg:order-2 w-full lg:w-1/2 relative z-[1]">
             <div className="relative aspect-video sm:aspect-[4/3] max-w-2xl lg:max-w-md mx-auto bg-black">
-              {prefersReducedMotion ? (
-                <div className="w-full h-full bg-black/10 flex items-center justify-center text-white/70 text-sm">
-                  Video preview disabled
-                </div>
-              ) : (
-                <img
-                  src="/mainvideo.webp"
-                  alt="Animation"
-                  className="w-full h-full object-contain bg-black"
-                />
-              )}
-
+              <img
+                src="/mainvideo.webp"
+                alt="Animation"
+                className="w-full h-full object-contain bg-black"
+              />
             </div>
           </div>
         </div>
