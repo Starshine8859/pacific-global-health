@@ -1,9 +1,43 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Globe, Target, Users, Award, HeartPulse, BookOpen, Briefcase, GraduationCap, Handshake } from "lucide-react"
 import Image from "next/image"
+
+export const metadata: Metadata = {
+  title: "About Pacific Global Health | Our Mission & Vision",
+  description: "Learn about Pacific Global Health's mission to improve healthcare systems across the Asia-Pacific region. Discover our focus areas: primary care, health research, training programs, and strategic partnerships for sustainable healthcare solutions.",
+  keywords: [
+    "about Pacific Global Health",
+    "healthcare mission",
+    "global health organization",
+    "Asia-Pacific healthcare",
+    "health systems improvement",
+    "primary care enhancement",
+    "health research",
+    "healthcare partnerships",
+    "sustainable healthcare solutions",
+    "health workforce development"
+  ],
+  openGraph: {
+    title: "About Pacific Global Health | Our Mission & Vision",
+    description: "Learn about Pacific Global Health's mission to improve healthcare systems across the Asia-Pacific region. Discover our focus areas and strategic partnerships for sustainable healthcare solutions.",
+    url: 'https://pacificglobalhealth.org/about',
+    images: [
+      {
+        url: '/images/aboutus.png',
+        width: 1200,
+        height: 630,
+        alt: 'About Pacific Global Health',
+      },
+    ],
+  },
+  alternates: {
+    canonical: '/about',
+  },
+}
 
 export default function AboutPage() {
   const focusAreas = [

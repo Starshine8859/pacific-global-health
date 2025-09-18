@@ -1,0 +1,27 @@
+{
+  "name": "Pacific Global Health - Health Systems Improvement",
+  "short_name": "Pacific Global Health",
+  "description": "Building comprehensive health system improvement knowledge base and serving as a global think tank for innovative, sustainable solutions in healthcare across the Asia-Pacific region.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/pacific-global-health-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/pacific-global-health-logo.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["health", "medical", "education", "research"],
+  "lang": "en",
+  "dir": "ltr"
+}
