@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     siteName: 'Pacific Global Health',
     images: [
       {
-        url: '/images/pacific-global-health-logo.png',
-        width: 1200,
-        height: 630,
+        url: '/icon.png',
+        width: 512,
+        height: 512,
         alt: 'Pacific Global Health - Health Systems Improvement',
       },
     ],
@@ -68,8 +68,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Pacific Global Health - Health Systems Improvement",
     description: "Leading healthcare organization building comprehensive health system improvement knowledge base and serving as a global think tank for innovative, sustainable solutions in healthcare across the Asia-Pacific region.",
-    images: ['/images/pacific-global-health-logo.png'],
+    images: ['/icon.png'],
     creator: '@pacificglobalhealth',
+  },
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   },
   robots: {
     index: true,
@@ -98,6 +103,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="shortcut icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

@@ -1,24 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-  reactStrictMode: false,
-  devIndicators: {
-    buildActivity: false,
-  },
+  eslint: { ignoreDuringBuilds: true },        // you can turn this off later
+  typescript: { ignoreBuildErrors: true },     // you can turn this off later
+  images: { unoptimized: true },               // fine for simple/static deploys
+  reactStrictMode: false,                      // optional
   compiler: {
+    // valid in Next 15 — removes console.* in production bundles
     removeConsole: process.env.NODE_ENV === "production",
   },
-  experimental: {
-    suppressHydrationWarning: true,
-  },
+  // ❌ devIndicators removed (deprecated)
+  // ❌ experimental.suppressHydrationWarning removed (invalid)
 }
 
 export default nextConfig

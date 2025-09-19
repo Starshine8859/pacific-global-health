@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/images/pacific-global-health-logo.png",
+      "src": "/icon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/images/pacific-global-health-logo.png", 
+      "src": "/icon.png", 
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"

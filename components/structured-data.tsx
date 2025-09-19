@@ -6,8 +6,8 @@ export function StructuredData() {
     "alternateName": "PGH",
     "description": "Building comprehensive health system improvement knowledge base and serving as a global think tank for innovative, sustainable solutions in healthcare across the Asia-Pacific region.",
     "url": "https://pacificglobalhealth.org",
-    "logo": "https://pacificglobalhealth.org/images/pacific-global-health-logo.png",
-    "image": "https://pacificglobalhealth.org/images/pacific-global-health-logo.png",
+    "logo": "https://pacificglobalhealth.org/icon.png",
+    "image": "https://pacificglobalhealth.org/icon.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "200 Gilchrist Dr",
